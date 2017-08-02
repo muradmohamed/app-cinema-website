@@ -5,20 +5,28 @@
 
 .my-create-film {
     margin-bottom: 100px;
+    color: black;
 }
 
 .my-upload-image img {
     width: 95%;
-    height: 280px;
+    height: 320px;
     border-radius: 20px;
     margin-bottom: 20px;
     opacity: 0.7;
     /* object-fit: cover; */
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (min-width:768px) and (max-width: 991px) {
     .my-upload-image img {
-        width: 60%;
+        width: 70%;
+        height: 400px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .my-upload-image img {
+        width: 70%;
     }
 }
 

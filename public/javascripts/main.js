@@ -10,33 +10,32 @@ angular.module('CinemaApp').controller('mainController', ['$scope', '$firebaseAr
         $scope.currentEmail = '';
         $scope.currentUsername = '';
         $scope.currentUid = '';
-        // console.log("main");
+        $scope.completeLoading = false;
 
-        // var initApp = function() {
+        // $('#login-complete').html('true');
+        // $('#login-complete').text();
+
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
-                // User is signed in.
-                // console.log('logined');
+                // console.log('User logined');
                 $scope.userLogined = true;
                 $scope.currentEmail = user.email;
                 $scope.currentUid = user.uid;
                 var ref = firebase.database().ref('listUsers/' + $scope.currentUid);
                 ref.once('value').then(function(snapshot) {
                     $scope.currentUsername = snapshot.val().username;
+                    $scope.completeLoading = true;
                     $scope.$apply();
-                    $('body').toggleClass('loaded');
+                    $('#login-complete').html('true');
                 });
             } else {
-                // No user is signed in.
-                // console.log('no login');
+                // console.log('User no login');
                 $scope.userLogined = false;
                 $scope.currentEmail = '';
                 $scope.currentUsername = '';
                 $scope.currentUid = '';
             }
-            // console.log($scope.userLogined);
         });
-        // }
 
         $scope.clickLogout = function() {
             firebase.auth().signOut().then(function() {
@@ -47,8 +46,6 @@ angular.module('CinemaApp').controller('mainController', ['$scope', '$firebaseAr
                 console.log(error);
             });
         }
-
-        // initApp();
     }
 ]);
 

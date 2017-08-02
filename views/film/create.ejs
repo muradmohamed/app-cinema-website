@@ -25,23 +25,23 @@
 
             <div class="container col-sm-12 col-md-7 my-form-film animated flipInX">
                 <div class="form-group">
-                    <label for="filmName"> Tên bộ phim: </label>
+                    <h4>Tên bộ phim:</h4>
                     <input class="form-control my-input-film" type="text" id="filmName" ng-model="filmName">
                 </div>
 
                 <div class="form-group">
-                    <label for="filmGenre"> Thể loại phim: </label> <br>
+                    <h4>Thể loại phim:</h4>
                     <select ng-options="genre for genre in listGenreFilms" ng-model="filmGenre" class="my-input-film col-md-12 col-sm-12 col-lg-12 col-xs-12" id="filmGenre">
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="yearFilm"> Thời gian phát hành: </label>
+                    <h4> Thời gian phát hành: </h4>
                     <input class="form-control my-input-film" type="month" id="yearFilm" min="1995-09" value="2017-08" max="2020-12">
                 </div>
 
                 <div class="form-group">
-                    <label for="filmContent"> Nội dung mô tả:</label>
+                    <h4> Nội dung mô tả:</h4>
                     <textarea class="form-control col-sm-12 col-md-12 my-input-film" id="filmContent" rows="5" placeholder="Điền thông tin thêm về bộ phim, như diễn viên chính, nội dung bộ phim,..." ng-model="filmContent"></textarea>
                 </div>
             </div>

@@ -1,4 +1,9 @@
-.my-detail-film h4 {}
+.my-detail-film p {
+    /* letter-spacing: 1px; */
+    line-height: 180%;
+    font-size: 1.1em;
+    color: black;
+}
 
 .my-detail-film {
     margin-top: 40px;

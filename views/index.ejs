@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/stylesheets/film/list.css">
     <script src="/javascripts/film/list.js"></script>
     <div class="container my-portfolio" ng-controller="listFilmController">
-        <div class="col-md-4 col-xs-12 col-sm-6 my-portfolio-item animated fadeInUp" ng-repeat="film in listFilm">
+        <div class="col-md-4 col-xs-12 col-sm-6 my-portfolio-item animated fadeInUp" ng-repeat="film in listFilm" ng-cloak>
             <a href="" ng-click="viewFilm(film)">
                 <img ng-src="{{film.url}}" class="img-responsive" alt="">
                 <div class="detail">

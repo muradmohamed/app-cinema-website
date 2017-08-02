@@ -5,8 +5,6 @@ angular.module('CinemaApp').controller('createController', ['$scope', '$firebase
 
         // console.log('Controller Create Film');
 
-        $scope.complete = false;
-
         $scope.listGenreFilms = [
             'Tiểu sử lịch sử',
             'Lãng mạn tình cảm',

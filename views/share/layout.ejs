@@ -14,7 +14,7 @@
     <link rel="icon" href="/images/favicon.png">
 
     <!-- load Google Fonts  -->
-    <link href="https://fonts.googleapis.com/css?family=Paytone+One|Quicksand&amp;subset=latin-ext,vietnamese" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Paytone+One|Quicksand&amp;subset=latin-ext,vietnamese" rel="stylesheet">
 
     <!-- load BootStrap  -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -27,7 +27,7 @@
     <script src="//cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
 
     <!-- load Animate.css  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
     <!-- load Firebase  -->
     <script src="//www.gstatic.com/firebasejs/4.2.0/firebase-app.js "></script>
@@ -50,7 +50,7 @@
     <script src="/javascripts/system/configFacebook.js"></script>
 
 
-
+    <span id="login-complete" style="display:none">false</span>
 
 
     <!-- NAVIGATION -->
@@ -67,27 +67,27 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li ng-hide="userLogined">
+                    <li ng-hide="userLogined" ng-cloak>
                         <a href="#" data-toggle="modal" data-target="#modalLogin">
                             <i class="fa fa-sign-in fa-lg" aria-hidden="true"></i> Đăng nhập</a>
                     </li>
-                    <li ng-hide="userLogined">
+                    <li ng-hide="userLogined" ng-cloak>
                         <a href="#" data-toggle="modal" data-target="#modalSignUp">
                             <i class="fa fa-user fa-lg" aria-hidden="true"></i> Đăng ký</a>
                     </li>
-                    <li ng-hide="!userLogined">
+                    <li ng-hide="!userLogined" ng-cloak>
                         <a href="/user/profile">
                             <i class="fa fa-user fa-lg" aria-hidden="true"></i> {{currentUsername}}</a>
                     </li>
                     <li>
-                        <a href="/film/createFilm">
+                        <a href="/film/createFilm" ng-cloak>
                             <i class="fa fa-upload fa-lg" aria-hidden="true"></i> Tạo phim mới </a>
                     </li>
-                    <li ng-hide="!userLogined">
+                    <li ng-hide="!userLogined" ng-cloak>
                         <a href="#" data-toggle="modal" data-target="#modalChangePassword">
                             <i class="fa fa-cog fa-lg" aria-hidden="true"></i> Đổi mật khẩu </a>
                     </li>
-                    <li ng-hide="!userLogined">
+                    <li ng-hide="!userLogined" ng-cloak>
                         <a href="#" data-toggle="modal" data-target="#modalLogout">
                             <i class="fa fa-sign-out fa-lg" aria-hidden="true"></i> Đăng xuất</a>
                     </li>
@@ -322,7 +322,7 @@
 
     <!-- LOGOUT  -->
 
-    <div class="modal fade animated wobble" id="modalLogout" tabindex="-1" role="dialog" aria-labelledby="modalLogoutLabel" aria-hidden="true">
+    <div class="modal fade animated shake" id="modalLogout" tabindex="-1" role="dialog" aria-labelledby="modalLogoutLabel" aria-hidden="true">
         <div class="modal-dialog my-modal-dialog" role="document">
             <div class="modal-content my-modal-content">
                 <div class="modal-header my-modal-header">
@@ -357,7 +357,7 @@
 
         <!-- FOOTER  -->
 
-        <footer class="text-center my-footer">
+        <footer class="text-center my-footer" ng-show="completeLoading" ng-cloak>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
