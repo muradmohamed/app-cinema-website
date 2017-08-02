@@ -1,0 +1,35 @@
+<% layout('../share/layout') -%>
+
+
+    <link rel="stylesheet" href="/stylesheets/film/create.css">
+    <link rel="stylesheet" href="/stylesheets/film/detail.css">
+    <script src="/javascripts/film/detail.js"></script>
+
+    <div class="container my-detail-film" ng-controller="detailController">
+
+        <div class="container my-container-center my-title-header" ng-hide="!complete">
+            <h1> {{name}} </h1>
+        </div>
+
+        <div class="container col-sm-12 col-md-5 my-detail-image text-center animated fadeIn">
+            <a ng-href="{{url}}">
+                <img ng-src="{{url}}">
+            </a>
+        </div>
+
+        <div class="container col-sm-12 col-md-7 my-form-film animated flipInX">
+            <h4> Thể loại: {{genre}} </h4>
+            <h4> Thời điểm phát hành: {{time}} </h4>
+            <h4> Nội dung mô tả: </h4>
+            <p> {{content}}</p>
+        </div>
+
+        <div class="container my-container-center my-bot-form">
+            <button type="submit " class="btn btn-primary my-btn text-center animated slideInUp" onclick="javascript:window.history.back()">
+                <i class="fa fa-undo fa-lg" aria-hidden="true"></i>
+                    Quay trở về
+            </button>
+        </div>
+
+        <span id="key-film" style="display:none"><%= key %></span>
+    </div>

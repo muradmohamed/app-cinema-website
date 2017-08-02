@@ -1,0 +1,32 @@
+.my-container-profile {
+    padding: 0px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.my-div-block {
+    background-color: rgba(0, 130, 0, 0.7);
+    border-radius: 20px;
+    padding: 30px 40px;
+    color: black;
+    /* margin: 0px 30px; */
+}
+
+.my-div-block:hover {
+    background-color: rgba(0, 130, 0, 0.6);
+    transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -webkit-transition-duration: 0.3s;
+}
+
+.my-bot-form {
+    padding: 50px;
+}
+
+.my-btn-profile {
+    font-size: 1.1em;
+    padding: 15px 25px;
+    border-radius: 8px;
+}

@@ -1,0 +1,28 @@
+.my-detail-film h4 {}
+
+.my-detail-film {
+    margin-top: 40px;
+    margin-bottom: 100px;
+}
+
+.my-detail-image img {
+    width: 95%;
+    opacity: 0.9;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 991px) {
+    .my-detail-image img {
+        width: 60%;
+    }
+}
+
+.my-detail-image img:hover {
+    opacity: 1;
+    border-radius: 0px;
+    transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s;
+}

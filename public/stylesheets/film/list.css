@@ -1,0 +1,62 @@
+.my-portfolio {
+    justify-content: center;
+    margin: 200px auto 100px;
+}
+
+.my-portfolio-item {
+    height: 300px;
+    overflow: hidden;
+    margin-bottom: 50px;
+    position: relative;
+    padding: 0px;
+}
+
+.my-portfolio-item img {
+    height: 100%;
+    width: 95%;
+    object-fit: cover;
+}
+
+.detail {
+    position: absolute;
+    bottom: 0;
+    height: 80px;
+    width: 95%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0px 10px;
+}
+
+.name-film {
+    font-size: 1.1em;
+    letter-spacing: 1px;
+    font-family: 'Paytone One', sans-serif;
+}
+
+.content-film {
+    font-size: 1em;
+    font-weight: normal;
+    visibility: hidden;
+    padding-top: 5px;
+    word-wrap: break-word;
+}
+
+.hr-film {
+    padding: 0px;
+    margin: 0px;
+    visibility: hidden;
+}
+
+.detail:hover {
+    height: 100%;
+    background-color: rgba(0, 100, 0, 0.9);
+    transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -webkit-transition-duration: 0.3s;
+}
+
+.detail:hover>.content-film,
+.detail:hover>.hr-film {
+    visibility: visible;
+}
