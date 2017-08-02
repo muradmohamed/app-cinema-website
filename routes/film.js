@@ -11,7 +11,7 @@ router.get('/createFilm', function(req, res, next) {
 
 router.get('/detail/:key', function(req, res, next) {
 
-    res.render("film/detail", { title: "Phim", key: req.params.key });
+    res.render("film/detail", { title: "Chi tiết phim", key: req.params.key });
 });
 
 module.exports = router;
