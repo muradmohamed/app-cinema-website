@@ -337,9 +337,13 @@
                         <h3 class="modal-title" id="modalLogoutLabel">Bạn thực sự muốn đăng xuất?</h3>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-dismiss="modal"> Thoát</button>
-                    <button type="submit" class="btn btn-primary" ng-click="clickLogout()"> Đồng ý </button>
+                <div class="row" style="margin:20px">
+                    <div class="col-xs-6 col-md-6 col-lg-6 text-left">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal"> Không</button>
+                    </div>
+                    <div class="col-xs-6 col-md-6 col-lg-6 text-right">
+                        <button type="submit" class="btn btn-danger" ng-click="clickLogout()"> Đăng xuất </button>
+                    </div>
                 </div>
             </div>
         </div>
