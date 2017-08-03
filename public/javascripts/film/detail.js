@@ -6,6 +6,8 @@ angular.module('CinemaApp').controller("detailController", ['$scope', '$firebase
 
         // console.log('detail controller');
 
+        hideBeforeLoadingComplete();
+
         var key = document.getElementById('key-film').innerText;
         // console.log(key);
 
@@ -31,6 +33,7 @@ angular.module('CinemaApp').controller("detailController", ['$scope', '$firebase
                 $scope.complete = true;
                 $scope.$apply();
                 $('#btnReturn').show();
+                showAfterLoadingComplete();
             });
     }
 ]);

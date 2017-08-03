@@ -8,20 +8,20 @@
     <div class="container my-detail-film" ng-controller="detailController" ng-show="complete" id="detail-film">
 
         <div class="container my-container-center my-title-header animated flipInX" ng-cloak>
-            <h1> {{name}} </h1>
+            <h1 class="title-name-film"> {{name}} </h1>
         </div>
 
         <div class="container col-sm-12 col-md-5 my-detail-image text-center">
-            <a ng-href="{{url}}">
+            <a href="#" data-toggle="modal" data-target="#modalImage">
                 <img ng-src="{{url}}">
             </a>
         </div>
 
-        <div class="container col-sm-12 col-md-7 my-form-film animated flipInX" ng-cloak>
+        <div class="container col-sm-12 col-md-7 animated flipInX" ng-cloak>
             <h4> {{genre}} </h4>
             <h4> {{time}} </h4>
             <h4> {{noi_dung_mo_ta}} </h4>
-            <p> {{content}} </p>
+            <p style="text-align:justify"> {{content}} </p>
         </div>
 
         <div class="container my-container-center my-bot-form">
@@ -31,5 +31,20 @@
             </button>
         </div>
 
+
+        <!-- GET KEY FILM in .JS -->
         <span id="key-film" style="display:none"><%= key %></span>
+
+
+
+        <!-- Modal Show Image  -->
+        <div class="modal fade animated zoomIn my-modal-image" id="modalImage" tabindex="-1" aria-hidden="true">
+            <div class="text-right" style="margin: 20px">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-close fa-2x" aria-hidden="true" style="color:white"></i>
+                </button>
+            </div>
+            <img ng-src="{{url}}">
+        </div>
+
     </div>

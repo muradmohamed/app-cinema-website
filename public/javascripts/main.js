@@ -6,14 +6,14 @@ angular.module('CinemaApp').controller('mainController', ['$scope', '$firebaseAr
 
         // console.log('Main Controller');
 
+        hideBeforeLoadingComplete();
+
         $scope.userLogined = false;
         $scope.currentEmail = '';
         $scope.currentUsername = '';
         $scope.currentUid = '';
         $scope.completeLoading = false;
 
-        // $('#login-complete').html('true');
-        // $('#login-complete').text();
 
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
@@ -24,9 +24,8 @@ angular.module('CinemaApp').controller('mainController', ['$scope', '$firebaseAr
                 var ref = firebase.database().ref('listUsers/' + $scope.currentUid);
                 ref.once('value').then(function(snapshot) {
                     $scope.currentUsername = snapshot.val().username;
-                    $scope.completeLoading = true;
                     $scope.$apply();
-                    $('#login-complete').html('true');
+                    showAfterLoadingComplete();
                 });
             } else {
                 // console.log('User no login');
@@ -34,6 +33,8 @@ angular.module('CinemaApp').controller('mainController', ['$scope', '$firebaseAr
                 $scope.currentEmail = '';
                 $scope.currentUsername = '';
                 $scope.currentUid = '';
+                // $scope.completeLoading = true;
+                // $scope.$apply();
             }
         });
 

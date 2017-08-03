@@ -6,7 +6,6 @@
 }
 
 .my-detail-film {
-    margin-top: 40px;
     margin-bottom: 100px;
 }
 
@@ -30,4 +29,19 @@
     -o-transition-duration: 0.5s;
     -moz-transition-duration: 0.5s;
     -webkit-transition-duration: 0.5s;
+}
+
+.title-name-film {
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 2px;
+}
+
+.my-modal-image {
+    background-color: rgba(0, 0, 0, 0.6);
+    text-align: center;
+}
+
+.my-modal-image img {
+    height: 95%;
+    margin-bottom: 0;
 }

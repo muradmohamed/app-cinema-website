@@ -15,6 +15,9 @@
 
     <!-- load Google Fonts  -->
     <link href="//fonts.googleapis.com/css?family=Paytone+One|Quicksand&amp;subset=latin-ext,vietnamese" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:700&amp;subset=latin-ext,vietnamese" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+
 
     <!-- load BootStrap  -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -51,7 +54,24 @@
     <script src="/javascripts/system/configFacebook.js"></script>
 
 
-    <span id="login-complete" style="display:none">false</span>
+
+    <!-- HEADER PAGE  -->
+
+    <div class="my-header-page">
+        <div style="margin:5px 15px">
+            <h1> Cinema Application </h1>
+        </div>
+        <div class="text-right" style="margin:5px 15px">
+            <a href="https://github.com/huynhsamha" target="_blank">
+                <h4> Contact me: https://github.com/huynhsamha</h4>
+            </a>
+        </div>
+    </div>
+
+
+
+
+
 
 
     <!-- NAVIGATION -->
@@ -62,35 +82,71 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="/">Cinema</a>
+                <a class="navbar-brand" href="/">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                </a>
+                <a class="navbar-brand" href="/user/profile" ng-cloak>
+                    {{currentUsername}}
+                </a>
+                <!-- <a class="navbar-brand" href="/">Cinema</a> -->
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li ng-hide="userLogined" ng-cloak>
-                        <a href="#" data-toggle="modal" data-target="#modalLogin">
-                            <i class="fa fa-sign-in fa-lg" aria-hidden="true"></i> Đăng nhập</a>
-                    </li>
-                    <li ng-hide="userLogined" ng-cloak>
-                        <a href="#" data-toggle="modal" data-target="#modalSignUp">
-                            <i class="fa fa-user fa-lg" aria-hidden="true"></i> Đăng ký</a>
-                    </li>
-                    <li ng-hide="!userLogined" ng-cloak>
-                        <a href="/user/profile">
-                            <i class="fa fa-user fa-lg" aria-hidden="true"></i> {{currentUsername}}</a>
-                    </li>
                     <li>
                         <a href="/film/createFilm" ng-cloak>
                             <i class="fa fa-upload fa-lg" aria-hidden="true"></i> Tạo phim mới </a>
                     </li>
-                    <li ng-hide="!userLogined" ng-cloak>
+
+                    <li ng-hide="userLogined" ng-cloak>
+                        <a href="#" data-toggle="modal" data-target="#modalLogin">
+                            <i class="fa fa-sign-in fa-lg" aria-hidden="true"></i> Đăng nhập</a>
+                    </li>
+
+                    <li ng-hide="userLogined" ng-cloak>
+                        <a href="#" data-toggle="modal" data-target="#modalSignUp">
+                            <i class="fa fa-user fa-lg" aria-hidden="true"></i> Đăng ký</a>
+                    </li>
+
+                    <!-- <li ng-hide="!userLogined" ng-cloak>
+                        <a href="/user/profile">
+                            <i class="fa fa-user fa-lg" aria-hidden="true"></i> {{currentUsername}}</a>
+                    </li> -->
+
+                    <!-- <li ng-hide="!userLogined" ng-cloak>
                         <a href="#" data-toggle="modal" data-target="#modalChangePassword">
                             <i class="fa fa-cog fa-lg" aria-hidden="true"></i> Đổi mật khẩu </a>
-                    </li>
-                    <li ng-hide="!userLogined" ng-cloak>
+                    </li> -->
+                    <!-- <li ng-hide="!userLogined" ng-cloak>
                         <a href="#" data-toggle="modal" data-target="#modalLogout">
                             <i class="fa fa-sign-out fa-lg" aria-hidden="true"></i> Đăng xuất</a>
+                    </li> -->
+
+
+                    <!-- Dropdown menu  -->
+
+                    <li class="dropdown" ng-hide="!userLogined" ng-cloak>
+                        <a class="dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-cogs fa-lg" aria-hidden="true"></i> Cài đặt
+                        </a>
+                        <div id="my-dropdown-menu" class="dropdown-menu my-dropdown-menu animated bounceIn" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="/user/profile">
+                                <div class="my-menu-item">
+                                    <i class="fa fa-user-circle fa-lg" aria-hidden="true"></i> &nbsp; Thiết lập hồ sơ
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalChangePassword">
+                                <div class="my-menu-item">
+                                    <i class="fa fa-unlock-alt fa-lg" aria-hidden="true"></i> &nbsp; Thay đổi mật khẩu
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalLogout">
+                                <div class="my-menu-item">
+                                    <i class="fa fa-sign-out fa-lg" aria-hidden="true"></i> &nbsp; Đăng xuất
+                                </div>
+                            </a>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -362,7 +418,7 @@
 
         <!-- FOOTER  -->
 
-        <footer class="text-center my-footer" ng-show="completeLoading" ng-cloak>
+        <footer class="text-center my-footer">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">

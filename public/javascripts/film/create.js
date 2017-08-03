@@ -5,6 +5,8 @@ angular.module('CinemaApp').controller('createController', ['$scope', '$firebase
 
         // console.log('Controller Create Film');
 
+        hideBeforeLoadingComplete();
+
         $scope.listGenreFilms = [
             'Tiểu sử lịch sử',
             'Lãng mạn tình cảm',
@@ -34,9 +36,12 @@ angular.module('CinemaApp').controller('createController', ['$scope', '$firebase
         var filmUrl = "";
         var filePicked = null;
 
+        showAfterLoadingComplete();
+
         document.getElementById('fileInput').addEventListener('change', function(e) {
             filePicked = e.target.files[0];
             // console.log('change image');
+            $('#imageFilm').css('opacity', 1);
         }, false);
 
         $scope.clickUploadImage = function() {

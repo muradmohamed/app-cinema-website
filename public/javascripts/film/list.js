@@ -16,13 +16,13 @@ angular.module('CinemaApp').controller("listFilmController", ['$scope', '$fireba
 
         $scope.listFilm.$loaded().then(function(val) {
             // console.log(val);
+            showAfterLoadingComplete();
         }).catch(function(error) {
-            console.log(error);
+            // console.log(error);
         });
 
-        $scope.viewFilm = function(film) {
-            // console.log(film.key);
-            window.location.href = "/film/detail/" + film.key;
+        $scope.urlFilm = function(film) {
+            return window.location.href + "film/detail/" + film.key;
         }
     }
 ]);
