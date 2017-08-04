@@ -37,6 +37,7 @@ angular.module('CinemaApp').controller('loginFacebookController', ['$scope',
                     var credential = error.credential;
                     // ...
                     console.log(errorCode, errorMessage, email, credential);
+                    window.location.href = '/';
                 });
         }
 
