@@ -10,6 +10,7 @@
     border-radius: 20px;
     padding: 30px 40px;
     color: black;
+    height: 480px;
     /* margin: 0px 30px; */
 }
 
@@ -36,10 +37,28 @@
     height: 100px;
     border-radius: 50%;
     margin-right: 10px;
+    object-fit: contain;
+    border: 5px solid rgba(0, 180, 0, 1);
 }
 
 .my-input-avatar {
     justify-content: center;
     text-align: center;
-    object-fit: contain;
+}
+
+@media screen and (max-width:991px) {
+    .my-div-block {
+        margin-bottom: 50px;
+    }
+    .my-input-avatar span {
+        display: block;
+        margin: 15px;
+    }
+    .imageAvatar {
+        width: 120px;
+        height: 120px;
+    }
+    #my-div-block-top {
+        height: 540px;
+    }
 }

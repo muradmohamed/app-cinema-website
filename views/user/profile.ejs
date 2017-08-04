@@ -10,7 +10,7 @@
 
     <div class="container my-container-profile" ng-controller="profileUserController" ng-init="getUser()">
         <form role="form">
-            <div class="col-sm-12 col-md-5 animated flipInX my-div-block">
+            <div class="col-sm-12 col-md-5 animated flipInX my-div-block" id="my-div-block-top">
                 <h2 style="text-align:center">Thông tin cá nhân</h2>
                 <div class="form-group row">
                     <h6> Email </h6>
@@ -31,19 +31,13 @@
                         <input type="number" class="form-control" id="tel" name="tel" placeholder="Số điện thoại" ng-model="tel">
                     </div>
 
-                    <h6> Tài khoản Skype </h6>
-                    <div class="input-group my-div">
-                        <span class="input-group-addon"><i class="fa fa-skype fa-lg"></i></span>
-                        <input type="text" class="form-control" id="skype" name="skype" placeholder="Skype" ng-model="skype">
-                    </div>
-
                     <h6> Thay đổi ảnh đại diện </h6>
                     <div class="my-input-avatar">
                         <a href="" ng-click="clickUploadImage()">
                             <img class="imageAvatar" id="imageAvatar" name="imageAvatar" ng-src="{{avatar}}">
                         </a>
                         <input type="file" style="display:none" id="fileInputAvatar" name="fileInputAvatar" accept="image/*" onchange="readURL(this)">
-
+                        <span> </span>
                         <button type="button" class="btn btn-secondary my-btn text-center" ng-click="clickUploadImage()">
                             Chọn ảnh đại diện (avatar)
                         </button>
@@ -68,6 +62,12 @@
                     <div class="input-group my-div">
                         <span class="input-group-addon"><i class="fa fa-google-plus-square fa-lg"></i></span>
                         <input type="text" class="form-control" id="google" name="google" placeholder="Google+ ID" ng-model="google">
+                    </div>
+
+                    <h6> Tài khoản Skype </h6>
+                    <div class="input-group my-div">
+                        <span class="input-group-addon"><i class="fa fa-skype fa-lg"></i></span>
+                        <input type="text" class="form-control" id="skype" name="skype" placeholder="Skype" ng-model="skype">
                     </div>
 
                     <h6> Website/Blog </h6>

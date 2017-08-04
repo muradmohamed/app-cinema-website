@@ -250,6 +250,7 @@ h6 {
     height: 20px;
     align-self: center;
     object-fit: contain;
+    /* border: 2px solid rgba(0, 180, 0, 1); */
 }
 
 .nav-left li:hover {
