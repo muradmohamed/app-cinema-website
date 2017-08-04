@@ -1,9 +1,8 @@
 // console.log('facebook.js');
-
-var provider = new firebase.auth.FacebookAuthProvider();
-
 angular.module('CinemaApp').controller('loginFacebookController', ['$scope',
     function($scope) {
+
+        var provider = new firebase.auth.FacebookAuthProvider();
 
         // console.log('Controller Facebook');
 
@@ -46,6 +45,8 @@ angular.module('CinemaApp').controller('loginFacebookController', ['$scope',
             firebase.database().ref('listUsers/' + user.uid).set({
                 email: user.email,
                 username: user.displayName,
+                avatar: user.photoURL,
+                tel: user.phoneNumber
             }).then(function() {
                 window.location.href = '/';
             });

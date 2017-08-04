@@ -16,6 +16,7 @@ angular.module('CinemaApp').controller("profileUserController", ['$scope', '$fir
         $scope.facebook = '';
         $scope.skype = '';
         $scope.tel = '';
+        $scope.avatar = "/images/avatar-user.png";
 
         $scope.getUser = function() {
             // console.log('getUser()');
@@ -34,12 +35,46 @@ angular.module('CinemaApp').controller("profileUserController", ['$scope', '$fir
                         $scope.facebook = data.facebook;
                         $scope.skype = data.skype;
                         $scope.tel = data.tel;
+                        $scope.avatar = data.avatar ? data.avatar : "/images/avatar-user.png";
                     });
                 }
             });
         }
 
+        var filePicked = null;
+
+        $scope.clickUploadImage = function() {
+            document.getElementById('fileInputAvatar').click();
+        }
+
+        document.getElementById('fileInputAvatar').addEventListener('change', function(e) {
+            filePicked = e.target.files[0];
+            $('#imageAvatar').css('opacity', 1);
+        }, false);
+
         $scope.clickSave = function() {
+            if (filePicked !== null) {
+                uploadImageAvatar();
+            } else updateDataUser();
+        }
+
+        function uploadImageAvatar() {
+            var time = new Date().getTime();
+            var storageRef = firebase.storage().ref('imagesAvatarUser/IMG' + time + '.JPG');
+            var metadata = {
+                contentType: 'image/JPG'
+            };
+            storageRef.put(filePicked, metadata)
+                .then(function(snapshot) {
+                    $scope.avatar = snapshot.downloadURL;
+                    updateDataUser();
+                })
+                .catch(function(error) {
+                    alert('Lỗi trong quá trình tải ảnh lên');
+                });
+        }
+
+        function updateDataUser() {
             var userInfo = {
                 email: $scope.email,
                 username: $scope.username,
@@ -49,6 +84,7 @@ angular.module('CinemaApp').controller("profileUserController", ['$scope', '$fir
                 google: $scope.google,
                 website: $scope.website,
                 twitter: $scope.twitter,
+                avatar: $scope.avatar
             }
             firebase.database().ref('listUsers/' + uid).set(userInfo)
                 .then(function() {
@@ -58,3 +94,20 @@ angular.module('CinemaApp').controller("profileUserController", ['$scope', '$fir
         }
     }
 ]);
+
+
+$("#fileInputAvatar").change(function() {
+    readURL(this);
+});
+
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+            $('#imageAvatar').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}

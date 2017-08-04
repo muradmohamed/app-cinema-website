@@ -61,11 +61,11 @@
         <div class="my-top-header-text">
             <h1> Cinema Application </h1>
         </div>
-        <div class="my-bot-header-text text-right">
+        <!-- <div class="my-bot-header-text text-right">
             <a href="https://github.com/huynhsamha" target="_blank">
                 <h4> Contact me: https://github.com/huynhsamha</h4>
             </a>
-        </div>
+        </div> -->
     </div>
 
 
@@ -86,14 +86,21 @@
                 <a class="navbar-brand" href="/">
                     <i class="fa fa-home" aria-hidden="true"></i>
                 </a>
-                <a class="navbar-brand" href="/user/profile" ng-cloak ng-hide="!userLogined">
+                <!-- <a class="navbar-brand" href="/user/profile" ng-cloak ng-hide="!userLogined">
                     {{currentUsername}}
-                </a>
+                </a> -->
                 <!-- <a class="navbar-brand" href="/">Cinema</a> -->
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                <ul class="nav navbar-nav nav-left">
+                    <li>
+                        <a href="/user/profile" ng-cloak ng-hide="!userLogined">
+                            <img ng-src="{{currentUserAvartar}}" alt="avatar" ng-cloak> {{currentUsername}}
+                        </a>
+                    </li>
+                </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a href="/film/createFilm" ng-cloak>

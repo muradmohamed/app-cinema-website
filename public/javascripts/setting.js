@@ -20,6 +20,8 @@ $(window).scroll(function() {
 
 // Show And Hide Something When Complete Loading
 
+var isUserLogined = false;
+
 function hideBeforeLoadingComplete() {
     $("footer").hide();
 }

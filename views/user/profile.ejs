@@ -36,6 +36,18 @@
                         <span class="input-group-addon"><i class="fa fa-skype fa-lg"></i></span>
                         <input type="text" class="form-control" id="skype" name="skype" placeholder="Skype" ng-model="skype">
                     </div>
+
+                    <h6> Thay đổi ảnh đại diện </h6>
+                    <div class="my-input-avatar">
+                        <a href="" ng-click="clickUploadImage()">
+                            <img class="imageAvatar" id="imageAvatar" name="imageAvatar" ng-src="{{avatar}}">
+                        </a>
+                        <input type="file" style="display:none" id="fileInputAvatar" name="fileInputAvatar" accept="image/*" onchange="readURL(this)">
+
+                        <button type="button" class="btn btn-secondary my-btn text-center" ng-click="clickUploadImage()">
+                            Chọn ảnh đại diện (avatar)
+                        </button>
+                    </div>
                 </div>
             </div>
 

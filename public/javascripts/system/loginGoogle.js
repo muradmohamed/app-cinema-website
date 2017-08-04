@@ -1,10 +1,8 @@
 // console.log('google.js');
-
-var provider = new firebase.auth.GoogleAuthProvider();
-
 angular.module('CinemaApp').controller('loginGoogleController', ['$scope',
     function($scope) {
 
+        var provider = new firebase.auth.GoogleAuthProvider();
         // console.log('Controller google');
 
         $scope.loginGoogle = function() {
@@ -44,6 +42,8 @@ angular.module('CinemaApp').controller('loginGoogleController', ['$scope',
             firebase.database().ref('listUsers/' + user.uid).set({
                 email: user.email,
                 username: user.displayName,
+                avatar: user.photoURL,
+                tel: user.phoneNumber
             }).then(function() {
                 window.location.href = '/';
             });

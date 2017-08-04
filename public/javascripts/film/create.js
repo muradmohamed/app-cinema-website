@@ -38,6 +38,10 @@ angular.module('CinemaApp').controller('createController', ['$scope', '$firebase
 
         showAfterLoadingComplete();
 
+        // if (isUserLogined) {
+        //     $('#modalWarningCreateFilm').modal('show');
+        // }
+
         document.getElementById('fileInput').addEventListener('change', function(e) {
             filePicked = e.target.files[0];
             // console.log('change image');
@@ -49,6 +53,7 @@ angular.module('CinemaApp').controller('createController', ['$scope', '$firebase
         }
 
         $scope.clickUploadFilm = function() {
+            solveFirebase();
             if ($scope.filmName.length < 5 || $scope.filmName.length > 50) {
                 document.getElementById('filmName').setCustomValidity('Tên bộ phim từ 5-50 ký tự');
                 return;
@@ -64,7 +69,6 @@ angular.module('CinemaApp').controller('createController', ['$scope', '$firebase
                 alert('Bạn chưa chọn ảnh minh họa phim');
                 return;
             }
-            solveFirebase();
         }
 
         function solveFirebase() {
