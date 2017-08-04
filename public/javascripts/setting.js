@@ -35,7 +35,7 @@ function showAfterLoadingComplete() {
 
 $(window).scroll(function() {
     if ($(this).scrollTop() > 1000) {
-        // console.log(123);
+        // console.log('scroll');
         $('#scroll-to-top').fadeIn(400);
     } else {
         $('#scroll-to-top').fadeOut(400);
@@ -50,3 +50,10 @@ $(document).ready(function() {
         }, 500);
     })
 });
+
+
+// -----------   TOGGLE INPUT SEARCH --------------
+
+function toggleInputSearch() {
+    $('#input-search').toggleClass('input-search-show');
+}

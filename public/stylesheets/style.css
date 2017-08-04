@@ -336,6 +336,32 @@ h6 {
 }
 
 
+/* INPUT SEARCH ON NAVBAR  */
+
+.input-search {
+    font-weight: bold;
+    font-family: 'Quicksand', sans-serif;
+    align-self: center;
+    font-size: 1.1em;
+    margin: 8px 0px;
+    width: 0px;
+    background-color: inherit;
+    border: none;
+}
+
+.li-input-search:hover {
+    background-color: transparent !important;
+}
+
+.input-search-show {
+    width: 250px;
+    background-color: white;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3;
+    transition: all 0.3;
+}
+
+
 /* -----------   OTHER ID  --------------- */
 
 @media (max-width: 449px) {

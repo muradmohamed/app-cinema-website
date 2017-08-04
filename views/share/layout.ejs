@@ -108,6 +108,14 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    <li class="li-input-search">
+                        <input type="text" class="form-control input-search" id="input-search" placeholder="Nhập từ khóa tìm kiếm ..." ng-model="search">
+                    </li>
+                    <li class="li-input-search">
+                        <a href="" onclick="toggleInputSearch()">
+                            <i class="fa fa-search fa-lg" aria-hidden="true"></i>
+                        </a>
+                    </li>
                     <li>
                         <a href="/film/createFilm" ng-cloak>
                             <i class="fa fa-upload fa-lg" aria-hidden="true"></i> Tạo phim mới </a>
