@@ -336,7 +336,7 @@ h6 {
 }
 
 
-/* -----------   Other ID  --------------- */
+/* -----------   OTHER ID  --------------- */
 
 @media (max-width: 449px) {
     #div-login-google {
@@ -345,4 +345,35 @@ h6 {
     #div-login-facebook {
         width: 100%;
     }
+}
+
+
+/* ----------- ICON SCROLL TO TOP ---------------*/
+
+#scroll-to-top {
+    position: fixed;
+    bottom: 80px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-decoration: none;
+    display: none;
+    z-index: 1;
+    opacity: 0.7;
+}
+
+#scroll-to-top img {
+    position: relative;
+    border-radius: 50%;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+#scroll-to-top:hover {
+    opacity: 1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
 }

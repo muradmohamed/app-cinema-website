@@ -3,7 +3,7 @@ function validateEmail(email) {
     return re.test(email);
 }
 
-// SHRINK NAVBAR
+// -----------   SHRINK NAVBAR
 
 $(window).scroll(function() {
     if ($(document).scrollTop() > 95) {
@@ -18,7 +18,7 @@ $(window).scroll(function() {
     }
 });
 
-// Show And Hide Something When Complete Loading
+// ---------   Show And Hide Something When Complete Loading
 
 var isUserLogined = false;
 
@@ -29,3 +29,24 @@ function hideBeforeLoadingComplete() {
 function showAfterLoadingComplete() {
     $("footer").show();
 }
+
+
+// ----------- SCROLL TO TOP ---------------
+
+$(window).scroll(function() {
+    if ($(this).scrollTop() > 1000) {
+        // console.log(123);
+        $('#scroll-to-top').fadeIn(400);
+    } else {
+        $('#scroll-to-top').fadeOut(400);
+    }
+});
+
+$(document).ready(function() {
+    $('#scroll-to-top').click(function() {
+        // console.log('scroll top');
+        $('body').animate({
+            scrollTop: 0
+        }, 500);
+    })
+});
