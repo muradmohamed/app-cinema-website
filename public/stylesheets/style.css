@@ -4,12 +4,16 @@ body {
     font-family: 'Quicksand', sans-serif;
 }
 
-a,
+a {
+    color: #100C85;
+}
+
 a:hover,
 a:focus,
 a:active,
-a.active {
-    color: #100C85;
+a.active a:link {
+    color: #100F85;
+    text-decoration: none;
 }
 
 h1,

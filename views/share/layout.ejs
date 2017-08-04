@@ -197,19 +197,31 @@
                                 <button type="submit" class="btn btn-primary" id="btnLogin" name="btnLogin" ng-click="clickLogin()"> 
 					<i class="fa fa-sign-in fa-lg" aria-hidden="true"></i> Đăng nhập </button>
                             </div>
+
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <a href="#" ng-controller="loginGoogleController" ng-click="loginGoogle()">
+                                        <img src="/images/google.png" alt="Đăng nhập với Google+" width="100%" height="35px">
+                                    </a>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <a href="#" ng-controller="loginFacebookController" ng-click="loginFacebook()">
+                                        <img src="/images/facebook.png" alt="Đăng nhập bằng Facebook" width="100%" height="35px">
+                                    </a>
+                                </div>
+                            </div>
                         </form>
-                        <div class="row">
-                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                <a href="#" class="my-text-bold" data-toggle="modal" data-target="#modalForgetPassword" data-dismiss="modal"> Quên mật khẩu <i class="fa fa-question-circle fa-fw" aria-hidden="true"></i> </a>
-                            </div>
-                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
-                                <a href="#" class="my-text-bold" data-toggle="modal" data-target="#modalSignUp" data-dismiss="modal"> <i class="fa fa-user fa-fw" aria-hidden="true"></i> Đăng ký </a>
-                            </div>
+                        <div class="row col-xs-12 col-sm-12 col-md-12" style="margin-top:10px">
+                            <a href="#" class="my-text-bold" data-toggle="modal" data-target="#modalForgetPassword" data-dismiss="modal"> Quên mật khẩu <i class="fa fa-question-circle fa-fw" aria-hidden="true"></i> </a>
+                        </div>
+                        <div class="row col-xs-12 col-sm-12 col-md-12" style="margin-top:5px;margin-bottom:15px">
+                            <a href="#" class="my-text-bold" data-toggle="modal" data-target="#modalSignUp" data-dismiss="modal"> 
+                                     Bạn chưa là thành viên. Đăng ký </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="modal-footer">
+                <!-- <div class="modal-footer">
 
                     <a href="#" ng-controller="loginFacebookController" ng-click="loginFacebook()">
                         <img src="/images/facebook.png" alt="Đăng nhập bằng Facebook" class="col-xs-6 col-sm-6 col-md-5" style="margin:5px 0px">
@@ -217,15 +229,9 @@
 
                     <a href="#" ng-controller="loginGoogleController" ng-click="loginGoogle()">
                         <img src="/images/google.png" alt="Đăng nhập với Google+" class="col-xs-6 col-sm-6 col-md-5" style="margin:5px 0px">
-
-
                     </a>
-
-                    <!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-                    </fb:login-button> -->
-
-                    <button type="button" class="btn btn-success col-xs-12 col-sm-12 col-md-2" data-dismiss="modal" style="margin:5px 0px">Thoát</button>
-                </div>
+                     <button type="button" class="btn btn-success col-xs-12 col-sm-12 col-md-2" data-dismiss="modal" style="margin:5px 0px">Thoát</button> 
+                </div> -->
             </div>
         </div>
     </div>
@@ -312,14 +318,14 @@
                             </div>
                             <div class="form-group text-center">
                                 <button type="submit" class="btn btn-primary" id="btnSignup" name="btnSignup" ng-click="clickSignUp()"> 
-				<i class="fa fa-edit fa-lg" aria-hidden="true"></i> Tạo tài khoản </button>
+				<i class="fa fa-user-plus fa-lg" aria-hidden="true"></i> Tạo tài khoản </button>
                             </div>
                         </form>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <a href="#" class="my-text-bold" data-toggle="modal" data-target="#modalLogin" data-dismiss="modal"> Đã có tài khoản <i class="fa fa-exclamation-circle fa-fw" aria-hidden="true"></i> </a>
-                    <button type="button" class="btn btn-success" data-dismiss="modal">Thoát</button>
+                    <a href="#" class="my-text-bold" data-toggle="modal" data-target="#modalLogin" data-dismiss="modal"> Đã có tài khoản</a>
+                    <!-- <button type="button" class="btn btn-success" data-dismiss="modal">Thoát</button> -->
                 </div>
             </div>
         </div>
