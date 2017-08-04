@@ -333,3 +333,15 @@ h6 {
     -moz-transition: all 0.1;
     transition: all 0.1;
 }
+
+
+/* -----------   Other ID  --------------- */
+
+@media (max-width: 449px) {
+    #div-login-google {
+        width: 100%;
+    }
+    #div-login-facebook {
+        width: 100%;
+    }
+}
