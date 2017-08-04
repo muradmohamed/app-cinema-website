@@ -6,11 +6,13 @@ function validateEmail(email) {
 // SHRINK NAVBAR
 
 $(window).scroll(function() {
-    if ($(document).scrollTop() > 40) {
+    if ($(document).scrollTop() > 95) {
         // console.log('scroll');
+        $('nav').addClass('navbar-fixed-top');
         $('nav').addClass('my-shrink-nav');
         $('#my-dropdown-menu').addClass('my-shrink-dropdown-menu');
     } else {
+        $('nav').removeClass('navbar-fixed-top');
         $('nav').removeClass('my-shrink-nav');
         $('#my-dropdown-menu').removeClass('my-shrink-dropdown-menu');
     }

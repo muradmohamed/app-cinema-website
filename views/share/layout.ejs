@@ -58,10 +58,10 @@
     <!-- HEADER PAGE  -->
 
     <div class="my-header-page">
-        <div style="margin:5px 15px">
+        <div class="my-top-header-text">
             <h1> Cinema Application </h1>
         </div>
-        <div class="text-right" style="margin:5px 15px">
+        <div class="my-bot-header-text text-right">
             <a href="https://github.com/huynhsamha" target="_blank">
                 <h4> Contact me: https://github.com/huynhsamha</h4>
             </a>
@@ -75,7 +75,8 @@
 
 
     <!-- NAVIGATION -->
-    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+    <!-- <nav class="navbar navbar-default navbar-fixed-top navbar-custom"> -->
+    <nav class="navbar navbar-default navbar-custom">
         <div class="container my-containter-full">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -85,7 +86,7 @@
                 <a class="navbar-brand" href="/">
                     <i class="fa fa-home" aria-hidden="true"></i>
                 </a>
-                <a class="navbar-brand" href="/user/profile" ng-cloak>
+                <a class="navbar-brand" href="/user/profile" ng-cloak ng-hide="!userLogined">
                     {{currentUsername}}
                 </a>
                 <!-- <a class="navbar-brand" href="/">Cinema</a> -->
@@ -106,7 +107,7 @@
 
                     <li ng-hide="userLogined" ng-cloak>
                         <a href="#" data-toggle="modal" data-target="#modalSignUp">
-                            <i class="fa fa-user fa-lg" aria-hidden="true"></i> Đăng ký</a>
+                            <i class="fa fa-user-plus fa-lg" aria-hidden="true"></i> Đăng ký</a>
                     </li>
 
                     <!-- <li ng-hide="!userLogined" ng-cloak>
