@@ -33,6 +33,7 @@ angular.module('CinemaApp').controller('loginGoogleController', ['$scope',
                 // The firebase.auth.AuthCredential type that was used.
                 var credential = error.credential;
                 // console.log(errorCode, errorMessage, email, credential);
+                alert('Tài khoản email này đã được dùng để xác thực đăng nhập bằng Facebook');
                 window.location.href = '/';
             });
         }
