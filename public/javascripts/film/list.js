@@ -27,6 +27,12 @@ angular.module('CinemaApp').controller("listFilmController", ['$scope', '$fireba
         $scope.urlFilm = function(film) {
             return window.location.href + "film/detail/" + film.key;
         }
-       
+     
+        $scope.comparatorFilm = function(film) {
+            var year = parseInt(film.year);            
+            var month = parseInt(film.month);
+            return - (year*100 + month);
+            // sort decressing time
+        }
     }
 ]);

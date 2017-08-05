@@ -31,13 +31,23 @@
 
                 <div class="form-group">
                     <h4>Thể loại phim:</h4>
-                    <select ng-options="genre for genre in listGenreFilms" ng-model="filmGenre" class="my-input-film col-md-12 col-sm-12 col-lg-12 col-xs-12" id="filmGenre">
+                    <select ng-options="genre for genre in listGenreFilms" ng-model="filmGenre" class="my-input-film col-md-12 col-sm-12 col-lg-12 col-xs-12 my-select-film" id="filmGenre">
                     </select>
                 </div>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <h4> Thời gian phát hành: </h4>
                     <input class="form-control my-input-film" type="month" id="yearFilm" min="1900-01" value="2017-08" max="2030-12">
+                </div> -->
+
+                <div class="form-group">
+                    <h4> Thời gian phát hành: </h4>
+                    <select ng-options="month for month in listMonth" ng-model="filmMonth" class="my-input-film my-select-film col-lg-5 col-md-5 col-sm-5 col-xs-5" id="filmMonth"></select>
+
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    </div>
+
+                    <select ng-options="year for year in listYear" ng-model="filmYear" class="my-input-film col-md-5 col-sm-5 col-lg-5 col-xs-5 my-select-film" id="filmYear"></select>
                 </div>
 
                 <div class="form-group">
@@ -71,15 +81,15 @@
                         </div>
                         <br>
                         <div class="text-center">
-                            <h3 class="modal-title">Bạn nên đăng nhập để tạo phim</h3>
+                            <h3 class="modal-title">Bạn nên đăng nhập để tạo phim.</h3>
                         </div>
                     </div>
                     <div class="row" style="margin:20px">
                         <div class="col-xs-6 col-md-6 col-lg-6 text-left">
-                            <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#modalLogin">Đăng nhập</button>
+                            <button type="submit" class="btn btn-danger" data-dismiss="modal">Đóng</button>
                         </div>
                         <div class="col-xs-6 col-md-6 col-lg-6 text-right">
-                            <button type="submit" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#modalLogin">Đăng nhập</button>
                         </div>
                     </div>
                 </div>

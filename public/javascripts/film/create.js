@@ -30,6 +30,20 @@ angular.module('CinemaApp').controller('createController', ['$scope', '$firebase
             'Tội ác',
         ];
 
+        $scope.listMonth = [];
+        for (var i = 1; i <= 12; i++) $scope.listMonth.push('Tháng ' + i);
+        $scope.listYear = [];
+        for (var i = 1900; i <= 2050; i++) $scope.listYear.push('Năm ' + i);
+
+        $scope.filmMonth = 'Tháng ' + (new Date().getMonth() + 1);
+        $scope.filmYear = 'Năm ' + new Date().getFullYear();
+
+        console.log($scope.filmMonth, $scope.filmYear);
+
+        // var month = $scope.filmMonth.substr(6, $scope.filmMonth.length - 6);
+        // if (month.length == 1) month = '0' + month;
+        // console.log('_' + month + '_');
+
         $scope.filmName = "";
         $scope.filmGenre = $scope.listGenreFilms[0];
         $scope.filmContent = "";
@@ -37,10 +51,6 @@ angular.module('CinemaApp').controller('createController', ['$scope', '$firebase
         var filePicked = null;
 
         showAfterLoadingComplete();
-
-        // if (isUserLogined) {
-        //     $('#modalWarningCreateFilm').modal('show');
-        // }
 
         document.getElementById('fileInput').addEventListener('change', function(e) {
             filePicked = e.target.files[0];
@@ -92,10 +102,15 @@ angular.module('CinemaApp').controller('createController', ['$scope', '$firebase
         function uploadFilmOnFirebase() {
             var ref = firebase.database().ref('listFilms');
             var newKey = ref.push().key;
+            var month = $scope.filmMonth.substr(6, $scope.filmMonth.length - 6);
+            if (month.length == 1) month = '0' + month;
+            var year = $scope.filmYear.substr(4, $scope.filmYear.length - 4);
             var newFilm = {
                 name: $scope.filmName,
                 content: $scope.filmContent,
-                time: document.getElementById('yearFilm').value,
+                month: month,
+                year: year,
+                time: month + '-' + year,
                 genre: $scope.filmGenre,
                 url: filmUrl,
                 key: newKey

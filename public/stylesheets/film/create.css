@@ -57,9 +57,14 @@
 
 .my-input-film {
     margin-top: 3px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
-#filmGenre {
+.my-form-film .form-group h4 {
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+.my-select-film {
     padding: 6px 10px;
 }
