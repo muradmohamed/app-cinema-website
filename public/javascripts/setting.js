@@ -1,9 +1,12 @@
+// ----------  VALIDATE EMAIL -------------
+
 function validateEmail(email) {
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
 }
 
-// -----------   SHRINK NAVBAR
+
+// -----------   SHRINK NAVBAR ------------
 
 $(window).scroll(function() {
     if ($(document).scrollTop() > 95) {
@@ -18,7 +21,8 @@ $(window).scroll(function() {
     }
 });
 
-// ---------   Show And Hide Something When Complete Loading
+
+// ---------   Show And Hide Something ---------------
 
 function hideBeforeLoadingComplete() {
     $("footer").hide();
@@ -29,25 +33,16 @@ function showAfterLoadingComplete() {
 }
 
 
-// -----------------   LOADER ----------------
-
-jQuery.fn.center = function() {
-    this.css("position", "absolute");
-    this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) +
-        $(window).scrollTop()) + "px");
-    this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) +
-        $(window).scrollLeft()) + "px");
-    return this;
-}
+// -------------  LOADER not CALLBACK   ----------------
 
 function showLoader() {
-    $('.loader').center();
     $('.loader').fadeIn(500);
 }
 
 function hideLoader() {
     $('.loader').fadeOut(500);
 }
+
 
 // ----------- SCROLL TO TOP ---------------
 
@@ -73,8 +68,21 @@ $(document).ready(function() {
 // -----------   TOGGLE INPUT SEARCH --------------
 
 function toggleInputSearch() {
-    // $('#input-search').toggleClass('input-search-show');
     $('#input-search').animate({ width: 'toggle' }, 300);
 }
 
-// ------------  FORMAT MONTH INPUT -------------
+
+// ------------ BỎ DẤU TIẾNG VIỆT -----------------
+
+function viToAlias(str) {
+    if (str == null || str.length == 0) return "";
+    str = str.toLowerCase();
+    str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+    str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+    str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+    str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+    str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+    str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+    str = str.replace(/đ/g, "d");
+    return str;
+}

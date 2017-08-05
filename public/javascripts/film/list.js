@@ -18,6 +18,14 @@ angular.module('CinemaApp').controller("listFilmController", ['$scope', '$fireba
 
         $scope.listFilm.$loaded().then(function(val) {
             // console.log(val);
+            
+            $scope.listFilm.forEach(function(film) {
+                film.contentSearch = viToAlias(film.name);
+                film.contentSearch += viToAlias(film.content);
+                film.contentSearch += viToAlias(film.genre);
+                // console.log(film.contentSearch);
+            });
+
             $('.loader').fadeOut(500, function() {
                 $scope.completeLoading = true;
                 $scope.$apply();

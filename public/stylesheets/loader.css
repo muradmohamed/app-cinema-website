@@ -3,7 +3,7 @@ https://projects.lukehaas.me/css-loaders/
 */
 
 .loader {
-    position: absolute;
+    position: fixed;
     top: 45%;
     left: 50%;
     color: rgb(0, 250, 0);
