@@ -59,5 +59,13 @@ angular.module('CinemaApp').controller('mainController', ['$scope', '$firebaseAr
                 console.log(error);
             });
         }
+
+        $scope.checkPageIndex = function() {
+            // console.log(window.location.pathname);
+            return window.location.pathname == "/";
+        }
+
+        // $scope.resultsSearching = [];
+
     }
 ]);

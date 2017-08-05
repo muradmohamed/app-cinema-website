@@ -40,17 +40,17 @@ h6 {
 }
 
 .my-footer {
-    padding: 10px;
+    padding: 13px;
     color: white;
     background-color: black;
     font-family: 'Quicksand', sans-serif;
     font-size: 1.1em;
-    margin-top: 140px;
+    margin-top: 50px;
 }
 
 .my-title-header {
-    margin-top: 80px;
-    margin-bottom: 50px;
+    margin-top: 40px;
+    margin-bottom: 40px;
     color: rgb(0, 160, 0);
     letter-spacing: 1px;
     font-family: 'Paytone One', sans-serif;
@@ -249,13 +249,13 @@ h6 {
     width: 20px;
     height: 20px;
     align-self: center;
-    object-fit: contain;
-    /* border: 2px solid rgba(0, 180, 0, 1); */
+    object-fit: cover;
 }
 
-.nav-left li:hover {
+
+/* .nav-left li:hover {
     background-color: transparent;
-}
+} */
 
 @media (min-width: 768px) {
     .navbar-custom {
@@ -270,6 +270,8 @@ h6 {
     .navbar-custom .navbar-brand {
         border: none;
         font-size: 1.7em;
+        align-content: center;
+        justify-content: center;
         -webkit-transition: all 0.3s;
         -moz-transition: all 0.3s;
         transition: all 0.3s;
@@ -344,25 +346,71 @@ h6 {
     align-self: center;
     font-size: 1.1em;
     margin: 8px 0px;
-    width: 0px;
-    background-color: inherit;
+    /* width: 0px;  */
+    /* background-color: inherit; */
+    display: none;
     border: none;
+    width: 250px;
+    /* display: block; */
+    background-color: white;
+}
+
+.li-icon {
+    font-size: 1.4em;
+}
+
+.li-input-search {
+    margin-left: 10px;
 }
 
 .li-input-search:hover {
     background-color: transparent !important;
 }
 
-.input-search-show {
+
+/* .li-input-search:hover {
+    background-color: rgba(0, 150, 0, 0.9) !important;
+} */
+
+
+/* .input-search-show {
     width: 250px;
+    display: block;
     background-color: white;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3;
-    transition: all 0.3;
+    -webkit-transition: all 4s;
+    -moz-transition: all 4s;
+    transition: all 4s;
+} */
+
+@media (max-width: 768px) {
+    .li-icon {
+        font-size: 1.2em;
+    }
+    .input-search {
+        width: 100%;
+    }
 }
 
 
 /* -----------   OTHER ID  --------------- */
+
+@media (max-width: 768px) {
+    #div-login-google a img {
+        height: 50px;
+    }
+    #div-login-facebook a img {
+        height: 50px;
+    }
+}
+
+@media (max-width: 576px) {
+    #div-login-google a img {
+        height: 35px;
+    }
+    #div-login-facebook a img {
+        height: 35px;
+    }
+}
 
 @media (max-width: 449px) {
     #div-login-google {
@@ -402,4 +450,28 @@ h6 {
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
+}
+
+
+/* ------------  FORMAT INPUT ------------- */
+
+
+/*clear button close  */
+
+input[type="month"]::-webkit-clear-button {
+    display: none;
+}
+
+input[type="time"]::-ms-clear {
+    display: none;
+}
+
+
+/* hide input number arrow up/down  */
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin: 0;
 }

@@ -55,5 +55,8 @@ $(document).ready(function() {
 // -----------   TOGGLE INPUT SEARCH --------------
 
 function toggleInputSearch() {
-    $('#input-search').toggleClass('input-search-show');
+    // $('#input-search').toggleClass('input-search-show');
+    $('#input-search').animate({width:'toggle'}, 300);
 }
+
+// ------------  FORMAT MONTH INPUT -------------

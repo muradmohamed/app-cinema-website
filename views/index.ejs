@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/stylesheets/film/list.css">
     <script src="/javascripts/film/list.js"></script>
     <div class="container my-portfolio" ng-controller="listFilmController">
-        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 my-portfolio-item animated fadeInUp" ng-repeat="film in listFilm | filter: search | orderBy: '-time'" ng-cloak>
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 my-portfolio-item animated fadeInUp" ng-repeat="film in listFilm | orderBy: '-time' | filter: search as results" ng-cloak>
             <a ng-href="{{urlFilm(film)}}">
                 <img ng-src="{{film.url}}" class="img-responsive" alt="">
                 <div class="detail">
@@ -18,5 +18,16 @@
                     <p class="content-film" ng-init="content=minContentFilm(film)"> <span class="my-text-bold"> Nội dung: </span> {{content}} </p>
                 </div>
             </a>
+        </div>
+
+        <!-- NO SEARCH FILM  -->
+
+        <div class="container text-center my-result-search" ng-cloak ng-show="(completeLoadingFilm) && (results.length == 0)">
+            <h1>
+                Không tìm thấy kết quả tìm kiếm
+            </h1>
+            <h4>
+                Bạn hãy thử tìm kiếm với từ khóa khác. <br> Gợi ý: tìm kiếm theo tên phim, thể loại, hoặc theo thời gian phát hành
+            </h4>
         </div>
     </div>

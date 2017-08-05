@@ -14,19 +14,19 @@
                 <h2 style="text-align:center">Thông tin cá nhân</h2>
                 <div class="form-group row">
                     <h6> Email </h6>
-                    <div class="input-group my-div">
+                    <div class="input-group my-div my-div-2">
                         <span class="input-group-addon"><i class="fa fa-envelope fa-lg"></i></span>
                         <input type="text" class="form-control" disabled ng-value="email">
                     </div>
 
                     <h6> Tên người dùng </h6>
-                    <div class="input-group my-div">
+                    <div class="input-group my-div my-div-2">
                         <span class="input-group-addon"><i class="fa fa-address-card fa-lg"></i></span>
-                        <input type="text" class="form-control" id="username" name="username" placeholder="Tên người dùng" ng-model="username">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Tên người dùng" ng-model="username" maxlength="30">
                     </div>
 
                     <h6> Số điện thoại </h6>
-                    <div class="input-group my-div">
+                    <div class="input-group my-div my-div-2">
                         <span class="input-group-addon"><i class="fa fa-phone-square fa-lg"></i></span>
                         <input type="number" class="form-control" id="tel" name="tel" placeholder="Số điện thoại" ng-model="tel">
                     </div>
@@ -38,7 +38,7 @@
                         </a>
                         <input type="file" style="display:none" id="fileInputAvatar" name="fileInputAvatar" accept="image/*" onchange="readURL(this)">
                         <span> </span>
-                        <button type="button" class="btn btn-secondary my-btn text-center" ng-click="clickUploadImage()">
+                        <button type="button" class="btn btn-secondary my-btn text-center" ng-click="clickUploadImage()" style="color:black">
                             Chọn ảnh đại diện (avatar)
                         </button>
                     </div>
@@ -53,31 +53,31 @@
                 <h2 style="text-align:center">Mạng xã hội</h2>
                 <div class="form-group row">
                     <h6> Facebook </h6>
-                    <div class="input-group my-div">
+                    <div class="input-group my-div my-div-2">
                         <span class="input-group-addon"><i class="fa fa-facebook-square fa-lg"></i></span>
                         <input type="text" class="form-control" id="facebook" name="facebook" placeholder="http://" ng-model="facebook">
                     </div>
 
                     <h6> Google+ ID </h6>
-                    <div class="input-group my-div">
+                    <div class="input-group my-div my-div-2">
                         <span class="input-group-addon"><i class="fa fa-google-plus-square fa-lg"></i></span>
                         <input type="text" class="form-control" id="google" name="google" placeholder="Google+ ID" ng-model="google">
                     </div>
 
                     <h6> Tài khoản Skype </h6>
-                    <div class="input-group my-div">
+                    <div class="input-group my-div my-div-2">
                         <span class="input-group-addon"><i class="fa fa-skype fa-lg"></i></span>
                         <input type="text" class="form-control" id="skype" name="skype" placeholder="Skype" ng-model="skype">
                     </div>
 
                     <h6> Website/Blog </h6>
-                    <div class="input-group my-div">
+                    <div class="input-group my-div my-div-2">
                         <span class="input-group-addon"><i class="fa fa-external-link fa-lg"></i></span>
                         <input type="text" class="form-control" id="website" name="website" placeholder="http://" ng-model="website">
                     </div>
 
                     <h6> Twitter name </h6>
-                    <div class="input-group my-div">
+                    <div class="input-group my-div my-div-2">
                         <span class="input-group-addon"><i class="fa fa-twitter fa-lg"></i></span>
                         <input type="text" class="form-control" id="twitter" name="twitter" placeholder="Tên Twitter" ng-model="twitter">
                     </div>

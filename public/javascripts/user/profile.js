@@ -53,40 +53,45 @@ angular.module('CinemaApp').controller("profileUserController", ['$scope', '$fir
         }, false);
 
         $scope.clickSave = function() {
-            if (filePicked !== null) {
+            if (filePicked != null) {
                 uploadImageAvatar();
             } else updateDataUser();
         }
 
         function uploadImageAvatar() {
+            // console.log('upload');
             var time = new Date().getTime();
-            var storageRef = firebase.storage().ref('imagesAvatarUser/IMG' + time + '.JPG');
+            var storageRef = firebase.storage().ref('imagesAvatarUser/ABC' + time + '.JPG');
             var metadata = {
                 contentType: 'image/JPG'
             };
             storageRef.put(filePicked, metadata)
                 .then(function(snapshot) {
                     $scope.avatar = snapshot.downloadURL;
+                    console.log($scope.avatar);
                     updateDataUser();
-                })
-                .catch(function(error) {
-                    alert('Lỗi trong quá trình tải ảnh lên');
                 });
+            // .catch(function(error) {
+            //     alert('Lỗi trong quá trình tải ảnh lên');
+            //     console.log(error);
+            // });
         }
 
         function updateDataUser() {
             var userInfo = {
                 email: $scope.email,
                 username: $scope.username,
-                tel: $scope.tel,
-                skype: $scope.skype,
-                facebook: $scope.facebook,
-                google: $scope.google,
-                website: $scope.website,
-                twitter: $scope.twitter,
-                avatar: $scope.avatar
+                tel: $scope.tel ? $scope.tel : null,
+                skype: $scope.skype ? $scope.skype : null,
+                facebook: $scope.facebook ? $scope.facebook : null,
+                google: $scope.google ? $scope.google : null,
+                website: $scope.website ? $scope.website : null,
+                twitter: $scope.twitter ? $scope.twitter : null,
+                avatar: $scope.avatar ? $scope.avatar : null,
             }
-            firebase.database().ref('listUsers/' + uid).set(userInfo)
+
+            // console.log('listUsers/' + uid);
+            firebase.database().ref('listUsers/' + uid).update(userInfo)
                 .then(function() {
                     alert('Thông tin đã được cập nhật');
                     window.location.href = "/";

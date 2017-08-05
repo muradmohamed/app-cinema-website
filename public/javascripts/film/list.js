@@ -14,9 +14,12 @@ angular.module('CinemaApp').controller("listFilmController", ['$scope', '$fireba
             return film.content.substr(0, len) + '...';
         }
 
+        $scope.completeLoadingFilm = false;
+
         $scope.listFilm.$loaded().then(function(val) {
             // console.log(val);
             showAfterLoadingComplete();
+            $scope.completeLoadingFilm = true;
         }).catch(function(error) {
             // console.log(error);
         });
@@ -24,5 +27,6 @@ angular.module('CinemaApp').controller("listFilmController", ['$scope', '$fireba
         $scope.urlFilm = function(film) {
             return window.location.href + "film/detail/" + film.key;
         }
+       
     }
 ]);

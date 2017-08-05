@@ -1,7 +1,6 @@
 .my-portfolio {
     justify-content: center;
     margin-top: 100px;
-    margin-bottom: 100px;
     width: 98%;
 }
 
@@ -87,4 +86,17 @@
     .my-portfolio-item {
         height: 300px;
     }
+}
+
+
+/* ----------   NO SEARCH FILM ------------  */
+
+.my-result-search h1 {
+    color: rgb(0, 160, 0);
+    margin-bottom: 50px;
+}
+
+.my-result-search h4 {
+    margin-bottom: 110px;
+    line-height: 2;
 }

@@ -101,6 +101,19 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbar-collapse-1">
                 <ul class="nav navbar-nav nav-left">
+                    <li class="li-icon" ng-show="checkPageIndex()">
+                        <a href="" onclick="toggleInputSearch()">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li class="li-input-search" ng-show="checkPageIndex()" ng-cloak>
+                        <input type="text" class="form-control input-search" id="input-search" placeholder="Nhập từ khóa tìm kiếm ..." ng-model="search">
+                    </li>
+                    <li class="li-icon">
+                        <a href="/" ng-show="!checkPageIndex()" ng-cloak>
+                            <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+                        </a>
+                    </li>
                     <li>
                         <a href="/user/profile" ng-cloak ng-hide="!userLogined">
                             <img ng-src="{{currentUserAvartar}}" alt="avatar" ng-cloak> {{currentUsername}}
@@ -108,14 +121,6 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="li-input-search">
-                        <input type="text" class="form-control input-search" id="input-search" placeholder="Nhập từ khóa tìm kiếm ..." ng-model="search">
-                    </li>
-                    <li class="li-input-search">
-                        <a href="" onclick="toggleInputSearch()">
-                            <i class="fa fa-search fa-lg" aria-hidden="true"></i>
-                        </a>
-                    </li>
                     <li>
                         <a href="/film/createFilm" ng-cloak>
                             <i class="fa fa-upload fa-lg" aria-hidden="true"></i> Tạo phim mới </a>
@@ -222,12 +227,12 @@
                             <div class="row">
                                 <div class="col-md-6 col-sm-6 col-xs-6" id="div-login-google">
                                     <a href="#" ng-controller="loginGoogleController" ng-click="loginGoogle()">
-                                        <img src="/images/google.png" alt="Đăng nhập với Google+" width="100%" height="35px">
+                                        <img src="/images/google.png" alt="Đăng nhập với Google+" width="100%" height="45px">
                                     </a>
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-6" id="div-login-facebook">
                                     <a href="#" ng-controller="loginFacebookController" ng-click="loginFacebook()">
-                                        <img src="/images/facebook.png" alt="Đăng nhập bằng Facebook" width="100%" height="35px">
+                                        <img src="/images/facebook.png" alt="Đăng nhập bằng Facebook" width="100%" height="45px">
                                     </a>
                                 </div>
                             </div>
@@ -431,7 +436,7 @@
                         <button type="button" class="btn btn-primary" data-dismiss="modal"> Không</button>
                     </div>
                     <div class="col-xs-6 col-md-6 col-lg-6 text-right">
-                        <button type="submit" class="btn btn-danger" ng-click="clickLogout()"> Đăng xuất </button>
+                        <button type="submit" class="btn btn-danger" ng-click="clickLogout()"> Có </button>
                     </div>
                 </div>
             </div>
