@@ -20,16 +20,34 @@ $(window).scroll(function() {
 
 // ---------   Show And Hide Something When Complete Loading
 
-var isUserLogined = false;
-
 function hideBeforeLoadingComplete() {
     $("footer").hide();
 }
 
 function showAfterLoadingComplete() {
-    $("footer").show();
+    $("footer").fadeIn(400);
 }
 
+
+// -----------------   LOADER ----------------
+
+jQuery.fn.center = function() {
+    this.css("position", "absolute");
+    this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) +
+        $(window).scrollTop()) + "px");
+    this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) +
+        $(window).scrollLeft()) + "px");
+    return this;
+}
+
+function showLoader() {
+    $('.loader').center();
+    $('.loader').fadeIn(500);
+}
+
+function hideLoader() {
+    $('.loader').fadeOut(500);
+}
 
 // ----------- SCROLL TO TOP ---------------
 
@@ -56,7 +74,7 @@ $(document).ready(function() {
 
 function toggleInputSearch() {
     // $('#input-search').toggleClass('input-search-show');
-    $('#input-search').animate({width:'toggle'}, 300);
+    $('#input-search').animate({ width: 'toggle' }, 300);
 }
 
 // ------------  FORMAT MONTH INPUT -------------

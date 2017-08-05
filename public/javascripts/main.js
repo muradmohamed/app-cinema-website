@@ -6,7 +6,7 @@ angular.module('CinemaApp').controller('mainController', ['$scope', '$firebaseAr
 
         // console.log('Main Controller');
 
-        hideBeforeLoadingComplete();
+        // hideBeforeLoadingComplete();
 
         var avatarDefault = "/images/avatar-user.png";
 
@@ -32,7 +32,7 @@ angular.module('CinemaApp').controller('mainController', ['$scope', '$firebaseAr
                     $scope.currentUsername = data.username;
                     $scope.currentUserAvartar = data.avatar ? data.avatar : avatarDefault;
                     $scope.$apply();
-                    showAfterLoadingComplete();
+                    // showAfterLoadingComplete();
                 });
             } else {
                 // console.log('User no login');

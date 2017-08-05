@@ -44,6 +44,7 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
     <script src="/javascripts/setting.js"></script>
     <script src="/javascripts/main.js"></script>
+    <link rel="stylesheet" href="/stylesheets/loader.css">
 
 </head>
 
@@ -76,7 +77,9 @@
 
 
 
+    <!-- LOADER  -->
 
+    <div class="loader"></div>
 
 
 
@@ -191,7 +194,8 @@
     <script src="/javascripts/system/loginGoogle.js"></script>
     <script src="/javascripts/system/loginFacebook.js"></script>
 
-    <div class="modal fade animated rotateInUpRight" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="modalLoginLabel" aria-hidden="true">
+
+    <div class="modal fade animated rotateInUpRight" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="modalLoginLabel" aria-hidden="true" ng-controller="loginController">
         <div class="modal-dialog my-modal-dialog" role="document">
             <div class="modal-content my-modal-content">
                 <div class="modal-header my-modal-header">
@@ -206,59 +210,44 @@
                     </div>
                 </div>
                 <div class="modal-body my-modal-body">
-                    <div ng-controller="loginController">
-                        <form role="form">
-                            <div class="input-group my-div">
-                                <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
-                                <input type="text" class="form-control" placeholder="Địa chỉ email" id="emailLogin" name="emailLogin" ng-model="emailLogin">
-                            </div>
-                            <div class="input-group my-div">
-                                <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
-                                <input type="password" class="form-control" id="passwordLogin" name="passwordLogin" placeholder="Mật khẩu" ng-model="passwordLogin">
-                            </div>
-                            <div class="form-group">
-                                <input type="checkbox" value="true" id="rememberPassword" name="rememberPassword" ng-model="rememberPassword"> Lưu mật khẩu
-                            </div>
-                            <div class="form-group text-center">
-                                <button type="submit" class="btn btn-primary" id="btnLogin" name="btnLogin" ng-click="clickLogin()"> 
+                    <form role="form">
+                        <div class="input-group my-div">
+                            <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+                            <input type="text" class="form-control" placeholder="Địa chỉ email" id="emailLogin" name="emailLogin" ng-model="emailLogin">
+                        </div>
+                        <div class="input-group my-div">
+                            <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                            <input type="password" class="form-control" id="passwordLogin" name="passwordLogin" placeholder="Mật khẩu" ng-model="passwordLogin">
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" value="true" id="rememberPassword" name="rememberPassword" ng-model="rememberPassword"> Lưu mật khẩu
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary" id="btnLogin" name="btnLogin" ng-click="clickLogin()"> 
 					<i class="fa fa-sign-in fa-lg" aria-hidden="true"></i> Đăng nhập </button>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6 col-sm-6 col-xs-6" id="div-login-google">
-                                    <a href="#" ng-controller="loginGoogleController" ng-click="loginGoogle()">
-                                        <img src="/images/google.png" alt="Đăng nhập với Google+" width="100%" height="45px">
-                                    </a>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6" id="div-login-facebook">
-                                    <a href="#" ng-controller="loginFacebookController" ng-click="loginFacebook()">
-                                        <img src="/images/facebook.png" alt="Đăng nhập bằng Facebook" width="100%" height="45px">
-                                    </a>
-                                </div>
-                            </div>
-                        </form>
-                        <div class="row col-xs-12 col-sm-12 col-md-12" style="margin-top:10px">
-                            <a href="#" class="my-text-bold" data-toggle="modal" data-target="#modalForgetPassword" data-dismiss="modal"> Quên mật khẩu <i class="fa fa-question-circle fa-fw" aria-hidden="true"></i> </a>
                         </div>
-                        <div class="row col-xs-12 col-sm-12 col-md-12 my-text-bold" style="margin-top:5px;margin-bottom:15px">
-                            Bạn chưa là thành viên.
-                            <a href="#" data-toggle="modal" data-target="#modalSignUp" data-dismiss="modal"> 
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-6" id="div-login-google">
+                                <a href="#" ng-controller="loginGoogleController" ng-click="loginGoogle()">
+                                    <img src="/images/google.png" alt="Đăng nhập với Google+" width="100%" height="45px">
+                                </a>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6" id="div-login-facebook">
+                                <a href="#" ng-controller="loginFacebookController" ng-click="loginFacebook()">
+                                    <img src="/images/facebook.png" alt="Đăng nhập bằng Facebook" width="100%" height="45px">
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="row col-xs-12 col-sm-12 col-md-12" style="margin-top:10px">
+                        <a href="#" class="my-text-bold" data-toggle="modal" data-target="#modalForgetPassword" data-dismiss="modal"> Quên mật khẩu <i class="fa fa-question-circle fa-fw" aria-hidden="true"></i> </a>
+                    </div>
+                    <div class="row col-xs-12 col-sm-12 col-md-12 my-text-bold" style="margin-top:5px;margin-bottom:15px">
+                        Bạn chưa là thành viên.
+                        <a href="#" data-toggle="modal" data-target="#modalSignUp" data-dismiss="modal"> 
                                       Đăng ký </a>
-                        </div>
                     </div>
                 </div>
-
-                <!-- <div class="modal-footer">
-
-                    <a href="#" ng-controller="loginFacebookController" ng-click="loginFacebook()">
-                        <img src="/images/facebook.png" alt="Đăng nhập bằng Facebook" class="col-xs-6 col-sm-6 col-md-5" style="margin:5px 0px">
-                    </a>
-
-                    <a href="#" ng-controller="loginGoogleController" ng-click="loginGoogle()">
-                        <img src="/images/google.png" alt="Đăng nhập với Google+" class="col-xs-6 col-sm-6 col-md-5" style="margin:5px 0px">
-                    </a>
-                     <button type="button" class="btn btn-success col-xs-12 col-sm-12 col-md-2" data-dismiss="modal" style="margin:5px 0px">Thoát</button> 
-                </div> -->
             </div>
         </div>
     </div>
@@ -456,7 +445,7 @@
 
         <!-- FOOTER  -->
 
-        <footer class="text-center my-footer">
+        <footer class="text-center my-footer" style="display:none">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">

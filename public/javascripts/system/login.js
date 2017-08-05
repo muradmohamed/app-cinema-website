@@ -1,5 +1,9 @@
 // console.log('login.js');
 
+var lastUserEmail = null;
+var lastUserPassword = null;
+var lastUserRemember = false;
+
 angular.module('CinemaApp').controller('loginController', ['$scope', '$firebaseArray', '$firebaseObject', '$firebaseAuth',
     function($scope, $firebaseArray, $firebaseObject, $firebaseAuth) {
 
@@ -8,6 +12,12 @@ angular.module('CinemaApp').controller('loginController', ['$scope', '$firebaseA
         $scope.emailLogin = "";
         $scope.passwordLogin = "";
         $scope.rememberPassword = false;
+
+        console.log(lastUserRemember);
+        if (lastUserRemember) {
+            $scope.emailLogin = lastUserEmail;
+            $scope.passwordLogin = lastUserPassword;
+        }
 
         $scope.clickLogin = function() {
             if ($scope.emailLogin.length === 0) {
@@ -31,6 +41,12 @@ angular.module('CinemaApp').controller('loginController', ['$scope', '$firebaseA
         solveFirebase = function() {
             firebase.auth().signInWithEmailAndPassword($scope.emailLogin, $scope.passwordLogin)
                 .then(function() {
+                    // console.log($scope.rememberPassword);
+                    if ($scope.rememberPassword) {
+                        lastUserEmail = $scope.emailLogin;
+                        lastUserPassword = $scope.passwordLogin;
+                    }
+                    lastUserRemember = $scope.rememberPassword;
                     window.location.reload(true);
                 }).catch(function(error) {
                     var errorCode = error.code;

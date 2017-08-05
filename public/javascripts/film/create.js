@@ -5,7 +5,9 @@ angular.module('CinemaApp').controller('createController', ['$scope', '$firebase
 
         // console.log('Controller Create Film');
 
-        hideBeforeLoadingComplete();
+        $scope.completeLoading = false;
+        // hideBeforeLoadingComplete();
+        showLoader();
 
         $scope.listGenreFilms = [
             'Tiểu sử lịch sử',
@@ -38,8 +40,7 @@ angular.module('CinemaApp').controller('createController', ['$scope', '$firebase
         $scope.filmMonth = 'Tháng ' + (new Date().getMonth() + 1);
         $scope.filmYear = 'Năm ' + new Date().getFullYear();
 
-        console.log($scope.filmMonth, $scope.filmYear);
-
+        // console.log($scope.filmMonth, $scope.filmYear);
         // var month = $scope.filmMonth.substr(6, $scope.filmMonth.length - 6);
         // if (month.length == 1) month = '0' + month;
         // console.log('_' + month + '_');
@@ -50,7 +51,11 @@ angular.module('CinemaApp').controller('createController', ['$scope', '$firebase
         var filmUrl = "";
         var filePicked = null;
 
-        showAfterLoadingComplete();
+        $('.loader').fadeOut(500, function() {
+            $scope.completeLoading = true;
+            $scope.$apply();
+            showAfterLoadingComplete();
+        })
 
         document.getElementById('fileInput').addEventListener('change', function(e) {
             filePicked = e.target.files[0];
@@ -63,7 +68,6 @@ angular.module('CinemaApp').controller('createController', ['$scope', '$firebase
         }
 
         $scope.clickUploadFilm = function() {
-            solveFirebase();
             if ($scope.filmName.length < 5 || $scope.filmName.length > 50) {
                 document.getElementById('filmName').setCustomValidity('Tên bộ phim từ 5-50 ký tự');
                 return;
@@ -79,9 +83,11 @@ angular.module('CinemaApp').controller('createController', ['$scope', '$firebase
                 alert('Bạn chưa chọn ảnh minh họa phim');
                 return;
             }
+            solveFirebase();
         }
 
         function solveFirebase() {
+            showLoader();
             var time = new Date().getTime();
             var storageRef = firebase.storage().ref('imagess/IMG' + time + '.JPG');
             var metadata = {
@@ -94,8 +100,10 @@ angular.module('CinemaApp').controller('createController', ['$scope', '$firebase
                     uploadFilmOnFirebase();
                 })
                 .catch(function(error) {
-                    alert('Lỗi trong quá trình tải ảnh lên');
                     // console.error('Upload failed:', error);
+                    $('.loader').fadeOut(500, function() {
+                        alert('Lỗi trong quá trình tải ảnh lên');
+                    })
                 });
         }
 
@@ -116,8 +124,10 @@ angular.module('CinemaApp').controller('createController', ['$scope', '$firebase
                 key: newKey
             }
             ref.child(newKey).set(newFilm).then(function() {
-                alert('Phim đã tải lên thành công');
-                window.location.href = '/';
+                $('.loader').fadeOut(500, function() {
+                    alert('Phim đã tải lên thành công');
+                    window.location.href = '/';
+                })
             });
         }
     }

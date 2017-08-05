@@ -4,10 +4,12 @@
 
     <!-- PORTFOLIO FILM -->
 
-
     <link rel="stylesheet" href="/stylesheets/film/list.css">
     <script src="/javascripts/film/list.js"></script>
-    <div class="container my-portfolio" ng-controller="listFilmController">
+
+
+    <div class="container my-portfolio" ng-controller="listFilmController" ng-show="completeLoading">
+
         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 my-portfolio-item animated fadeInUp" ng-repeat="film in listFilm | orderBy: comparatorFilm | filter: search as results" ng-cloak>
             <a ng-href="{{urlFilm(film)}}">
                 <img ng-src="{{film.url}}" class="img-responsive" alt="">
@@ -22,7 +24,7 @@
 
         <!-- NO SEARCH FILM  -->
 
-        <div class="container text-center my-result-search" ng-cloak ng-show="(completeLoadingFilm) && (results.length == 0)">
+        <div class="container text-center my-result-search animated fadeIn" ng-cloak ng-show="(completeLoading) && (results.length == 0)">
             <h1>
                 Không tìm thấy kết quả tìm kiếm
             </h1>

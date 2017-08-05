@@ -6,8 +6,11 @@ angular.module('CinemaApp').controller("profileUserController", ['$scope', '$fir
 
         // console.log('Controller profile user');
 
-        var uid = '';
+        $scope.completeLoading = false;
+        showLoader();
 
+        var uid = '';
+        var avatarDefault = "/images/avatar-user.png";
         $scope.email = '';
         $scope.username = '';
         $scope.twitter = '';
@@ -16,7 +19,7 @@ angular.module('CinemaApp').controller("profileUserController", ['$scope', '$fir
         $scope.facebook = '';
         $scope.skype = '';
         $scope.tel = '';
-        $scope.avatar = "/images/avatar-user.png";
+        $scope.avatar = avatarDefault;
 
         $scope.getUser = function() {
             // console.log('getUser()');
@@ -35,7 +38,12 @@ angular.module('CinemaApp').controller("profileUserController", ['$scope', '$fir
                         $scope.facebook = data.facebook;
                         $scope.skype = data.skype;
                         $scope.tel = data.tel;
-                        $scope.avatar = data.avatar ? data.avatar : "/images/avatar-user.png";
+                        $scope.avatar = data.avatar ? data.avatar : avatarDefault;
+                        $('.loader').fadeOut(500, function() {
+                            $scope.completeLoading = true;
+                            $scope.$apply();
+                            showAfterLoadingComplete();
+                        })
                     });
                 }
             });
@@ -53,6 +61,7 @@ angular.module('CinemaApp').controller("profileUserController", ['$scope', '$fir
         }, false);
 
         $scope.clickSave = function() {
+            showLoader();
             if (filePicked != null) {
                 uploadImageAvatar();
             } else updateDataUser();
@@ -61,7 +70,7 @@ angular.module('CinemaApp').controller("profileUserController", ['$scope', '$fir
         function uploadImageAvatar() {
             // console.log('upload');
             var time = new Date().getTime();
-            var storageRef = firebase.storage().ref('imagesAvatarUser/ABC' + time + '.JPG');
+            var storageRef = firebase.storage().ref('imagesAvatarUser/IMG' + time + '.JPG');
             var metadata = {
                 contentType: 'image/JPG'
             };
@@ -70,11 +79,13 @@ angular.module('CinemaApp').controller("profileUserController", ['$scope', '$fir
                     $scope.avatar = snapshot.downloadURL;
                     console.log($scope.avatar);
                     updateDataUser();
+                })
+                .catch(function(error) {
+                    // console.log(error);
+                    $('.loader').fadeOut(500, function() {
+                        alert('Lỗi trong quá trình tải ảnh lên');
+                    })
                 });
-            // .catch(function(error) {
-            //     alert('Lỗi trong quá trình tải ảnh lên');
-            //     console.log(error);
-            // });
         }
 
         function updateDataUser() {
@@ -93,8 +104,10 @@ angular.module('CinemaApp').controller("profileUserController", ['$scope', '$fir
             // console.log('listUsers/' + uid);
             firebase.database().ref('listUsers/' + uid).update(userInfo)
                 .then(function() {
-                    alert('Thông tin đã được cập nhật');
-                    window.location.href = "/";
+                    $('.loader').fadeOut(500, function() {
+                        alert('Thông tin đã được cập nhật');
+                        window.location.href = "/";
+                    });
                 });
         }
     }

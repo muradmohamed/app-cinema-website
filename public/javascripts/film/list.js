@@ -5,6 +5,8 @@ angular.module('CinemaApp').controller("listFilmController", ['$scope', '$fireba
     function($scope, $firebaseArray, $firebaseObject) {
 
         // console.log('Controller List Film');
+        $scope.completeLoading = false;
+        showLoader();
 
         var ref = firebase.database().ref('listFilms');
         $scope.listFilm = $firebaseArray(ref);
@@ -14,12 +16,13 @@ angular.module('CinemaApp').controller("listFilmController", ['$scope', '$fireba
             return film.content.substr(0, len) + '...';
         }
 
-        $scope.completeLoadingFilm = false;
-
         $scope.listFilm.$loaded().then(function(val) {
             // console.log(val);
-            showAfterLoadingComplete();
-            $scope.completeLoadingFilm = true;
+            $('.loader').fadeOut(500, function() {
+                $scope.completeLoading = true;
+                $scope.$apply();
+                showAfterLoadingComplete();
+            })
         }).catch(function(error) {
             // console.log(error);
         });
@@ -27,11 +30,11 @@ angular.module('CinemaApp').controller("listFilmController", ['$scope', '$fireba
         $scope.urlFilm = function(film) {
             return window.location.href + "film/detail/" + film.key;
         }
-     
+
         $scope.comparatorFilm = function(film) {
-            var year = parseInt(film.year);            
+            var year = parseInt(film.year);
             var month = parseInt(film.month);
-            return - (year*100 + month);
+            return -(year * 100 + month);
             // sort decressing time
         }
     }

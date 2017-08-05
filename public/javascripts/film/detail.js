@@ -6,7 +6,8 @@ angular.module('CinemaApp').controller("detailController", ['$scope', '$firebase
 
         // console.log('detail controller');
 
-        hideBeforeLoadingComplete();
+        $scope.completeLoading = false;
+        showLoader();
 
         var key = document.getElementById('key-film').innerText;
         // console.log(key);
@@ -17,8 +18,6 @@ angular.module('CinemaApp').controller("detailController", ['$scope', '$firebase
         $scope.content = "";
         $scope.url = "";
 
-        $scope.complete = false;
-
         firebase.database().ref('/listFilms/' + key).once('value')
             .then(function(snapshot) {
                 console.log(snapshot.val());
@@ -28,10 +27,12 @@ angular.module('CinemaApp').controller("detailController", ['$scope', '$firebase
                 $scope.time = film.time;
                 $scope.content = film.content;
                 $scope.url = film.url;
-                $scope.complete = true;
-                $scope.$apply();
-                $('#btnReturn').show();
-                showAfterLoadingComplete();
+                $('.loader').fadeOut(500, function() {
+                    $scope.completeLoading = true;
+                    $scope.$apply();
+                    $('#btnReturn').show();
+                    showAfterLoadingComplete();
+                })
             });
     }
 ]);

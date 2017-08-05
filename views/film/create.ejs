@@ -4,97 +4,102 @@
     <link rel="stylesheet" href="/stylesheets/film/create.css">
     <script src="/javascripts/film/create.js"></script>
 
-    <div class="container my-container-center my-title-header">
-        <h1> Tạo phim mới </h1>
-    </div>
 
 
-    <div class="container my-create-film" ng-controller="createController">
-        <form role="form">
-            <div class="container col-sm-12 col-md-5 my-upload-image text-center animated fadeIn">
-                <a href="" ng-click="clickUploadImage()">
-                    <img id="imageFilm" name="imageFilm" src="/images/image.png">
-                </a>
-                <input type="file" style="display:none" id="fileInput" name="fileInput" accept="image/*" onchange="readURL(this)">
+    <div ng-controller="createController" ng-show="completeLoading">
 
-                <button type="button" class="btn btn-primary my-btn text-center" ng-click="clickUploadImage()">
+        <div class="container my-container-center my-title-header">
+            <h1> Tạo phim mới </h1>
+        </div>
+
+        <div class="container my-create-film">
+            <form role="form">
+                <div class="container col-sm-12 col-md-5 my-upload-image text-center animated fadeIn">
+                    <a href="" ng-click="clickUploadImage()">
+                        <img id="imageFilm" name="imageFilm" src="/images/image.png">
+                    </a>
+                    <input type="file" style="display:none" id="fileInput" name="fileInput" accept="image/*" onchange="readURL(this)">
+
+                    <button type="button" class="btn btn-primary my-btn text-center" ng-click="clickUploadImage()">
                     <i class="fa fa-file-image-o fa-lg" aria-hidden="true"></i>
                         Chọn hình minh họa
                 </button>
-            </div>
-
-            <div class="container col-sm-12 col-md-7 my-form-film animated flipInX">
-                <div class="form-group">
-                    <h4>Tên bộ phim:</h4>
-                    <input class="form-control my-input-film" type="text" id="filmName" ng-model="filmName">
                 </div>
 
-                <div class="form-group">
-                    <h4>Thể loại phim:</h4>
-                    <select ng-options="genre for genre in listGenreFilms" ng-model="filmGenre" class="my-input-film col-md-12 col-sm-12 col-lg-12 col-xs-12 my-select-film" id="filmGenre">
+                <div class="container col-sm-12 col-md-7 my-form-film animated flipInX">
+                    <div class="form-group">
+                        <h4>Tên bộ phim:</h4>
+                        <input class="form-control my-input-film" type="text" id="filmName" ng-model="filmName">
+                    </div>
+
+                    <div class="form-group">
+                        <h4>Thể loại phim:</h4>
+                        <select ng-options="genre for genre in listGenreFilms" ng-model="filmGenre" class="my-input-film col-md-12 col-sm-12 col-lg-12 col-xs-12 my-select-film" id="filmGenre">
                     </select>
-                </div>
+                    </div>
 
-                <!-- <div class="form-group">
+                    <!-- <div class="form-group">
                     <h4> Thời gian phát hành: </h4>
                     <input class="form-control my-input-film" type="month" id="yearFilm" min="1900-01" value="2017-08" max="2030-12">
                 </div> -->
 
-                <div class="form-group">
-                    <h4> Thời gian phát hành: </h4>
-                    <select ng-options="month for month in listMonth" ng-model="filmMonth" class="my-input-film my-select-film col-lg-5 col-md-5 col-sm-5 col-xs-5" id="filmMonth"></select>
+                    <div class="form-group">
+                        <h4> Thời gian phát hành: </h4>
+                        <select ng-options="month for month in listMonth" ng-model="filmMonth" class="my-input-film my-select-film col-lg-5 col-md-5 col-sm-5 col-xs-5" id="filmMonth"></select>
 
-                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                        </div>
+
+                        <select ng-options="year for year in listYear" ng-model="filmYear" class="my-input-film col-md-5 col-sm-5 col-lg-5 col-xs-5 my-select-film" id="filmYear"></select>
                     </div>
 
-                    <select ng-options="year for year in listYear" ng-model="filmYear" class="my-input-film col-md-5 col-sm-5 col-lg-5 col-xs-5 my-select-film" id="filmYear"></select>
+                    <div class="form-group">
+                        <h4> Nội dung mô tả:</h4>
+                        <textarea class="form-control col-sm-12 col-md-12 my-input-film" id="filmContent" rows="5" placeholder="Điền thông tin thêm về bộ phim, như diễn viên chính, nội dung bộ phim,..." ng-model="filmContent"></textarea>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <h4> Nội dung mô tả:</h4>
-                    <textarea class="form-control col-sm-12 col-md-12 my-input-film" id="filmContent" rows="5" placeholder="Điền thông tin thêm về bộ phim, như diễn viên chính, nội dung bộ phim,..." ng-model="filmContent"></textarea>
-                </div>
-            </div>
-
-            <div class="container my-container-center my-bot-form">
-                <button type="submit" class="btn btn-primary my-btn text-center animated slideInUp" ng-click="clickUploadFilm()" ng-disabled="!userLogined" style="margin-right:15px">
+                <div class="container my-container-center my-bot-form">
+                    <button type="submit" class="btn btn-primary my-btn text-center animated slideInUp" ng-click="clickUploadFilm()" ng-disabled="!userLogined" style="margin-right:15px">
                 <i class="fa fa-upload fa-lg" aria-hidden="true"></i>
                     Đăng phim
                 </button>
-                <button type="submit" class="btn btn-primary my-btn text-center animated slideInUp" ng-hide="userLogined" data-toggle="modal" data-target="#modalLogin">
+                    <button type="submit" class="btn btn-primary my-btn text-center animated slideInUp" ng-hide="userLogined" data-toggle="modal" data-target="#modalLogin">
                 <i class="fa fa-sign-in fa-lg" aria-hidden="true"></i>
                      Bạn cần đăng nhập
                 </button>
-            </div>
-        </form>
+                </div>
+            </form>
 
 
-        <!-- THÔNG BÁO NÊN ĐĂNG NHẬP TRƯỚC KHI TẠO PHIM  -->
-        <div class="modal fade animated rubberBand" id="modalWarningCreateFilm" tabindex="-1" role="dialog">
-            <div class="modal-dialog my-modal-dialog" role="document">
-                <div class="modal-content my-modal-content">
-                    <div class="modal-header my-modal-header">
-                        <div class="text-right" style="margin-right: 20px">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <!-- THÔNG BÁO NÊN ĐĂNG NHẬP TRƯỚC KHI TẠO PHIM  -->
+            <div class="modal fade animated rubberBand" id="modalWarningCreateFilm" tabindex="-1" role="dialog">
+                <div class="modal-dialog my-modal-dialog" role="document">
+                    <div class="modal-content my-modal-content">
+                        <div class="modal-header my-modal-header">
+                            <div class="text-right" style="margin-right: 20px">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <i class="fa fa-close fa-lg" aria-hidden="true"></i>
         			    </button>
+                            </div>
+                            <br>
+                            <div class="text-center">
+                                <h3 class="modal-title">Bạn nên đăng nhập để tạo phim.</h3>
+                            </div>
                         </div>
-                        <br>
-                        <div class="text-center">
-                            <h3 class="modal-title">Bạn nên đăng nhập để tạo phim.</h3>
-                        </div>
-                    </div>
-                    <div class="row" style="margin:20px">
-                        <div class="col-xs-6 col-md-6 col-lg-6 text-left">
-                            <button type="submit" class="btn btn-danger" data-dismiss="modal">Đóng</button>
-                        </div>
-                        <div class="col-xs-6 col-md-6 col-lg-6 text-right">
-                            <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#modalLogin">Đăng nhập</button>
+                        <div class="row" style="margin:20px">
+                            <div class="col-xs-6 col-md-6 col-lg-6 text-left">
+                                <button type="submit" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                            </div>
+                            <div class="col-xs-6 col-md-6 col-lg-6 text-right">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#modalLogin">Đăng nhập</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
+
+        </div>
 
     </div>
