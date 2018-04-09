@@ -1,49 +1,48 @@
-// console.log('film/list.js');
+(() => {
+  const showLoader = window.showLoader;
+  const showAfterLoadingComplete = window.showAfterLoadingComplete;
+  const viToAlias = window.viToAlias;
 
-angular.module('CinemaApp').controller("listFilmController", ['$scope', '$firebaseArray', '$firebaseObject',
+  const app = angular.module('CinemaApp');
 
-    function($scope, $firebaseArray, $firebaseObject) {
+  app.controller('listFilmController', ['$scope', '$firebaseArray', '$firebaseObject',
+    function ($scope, $firebaseArray, $firebaseObject) {
+      $scope.completeLoading = false;
+      showLoader();
 
-        // console.log('Controller List Film');
-        $scope.completeLoading = false;
-        showLoader();
+      var ref = firebase.database().ref('listFilms');
+      $scope.listFilm = $firebaseArray(ref);
 
-        var ref = firebase.database().ref('listFilms');
-        $scope.listFilm = $firebaseArray(ref);
+      $scope.minContentFilm = function (film) {
+        var len = film.content.length > 150 ? 150 : film.content.length;
+        return `${film.content.substr(0, len)}...`;
+      };
 
-        $scope.minContentFilm = function(film) {
-            var len = film.content.length > 150 ? 150 : film.content.length;
-            return film.content.substr(0, len) + '...';
-        }
-
-        $scope.listFilm.$loaded().then(function(val) {
-            // console.log(val);
-            
-            $scope.listFilm.forEach(function(film) {
-                film.contentSearch = viToAlias(film.name);
-                film.contentSearch += viToAlias(film.content);
-                film.contentSearch += viToAlias(film.genre);
-                // console.log(film.contentSearch);
-            });
-
-            $('.loader').fadeOut(500, function() {
-                $scope.completeLoading = true;
-                $scope.$apply();
-                showAfterLoadingComplete();
-            })
-        }).catch(function(error) {
-            // console.log(error);
+      $scope.listFilm.$loaded().then((val) => {
+        $scope.listFilm.forEach((film) => {
+          film.contentSearch = viToAlias(film.name);
+          film.contentSearch += viToAlias(film.content);
+          film.contentSearch += viToAlias(film.genre);
         });
 
-        $scope.urlFilm = function(film) {
-            return window.location.href + "film/detail/" + film.key;
-        }
+        $('.loader').fadeOut(500, () => {
+          $scope.completeLoading = true;
+          $scope.$apply();
+          showAfterLoadingComplete();
+        });
+      }).catch((error) => {
+        console.log(error);
+      });
 
-        $scope.comparatorFilm = function(film) {
-            var year = parseInt(film.year);
-            var month = parseInt(film.month);
-            return -(year * 100 + month);
-            // sort decressing time
-        }
+      $scope.urlFilm = function (film) {
+        return `${window.location.href}film/detail/${film.key}`;
+      };
+
+      $scope.comparatorFilm = function (film) {
+        var year = parseInt(film.year, 10);
+        var month = parseInt(film.month, 10);
+        return -(year * 100 + month);
+      };
     }
-]);
+  ]);
+})();

@@ -107,6 +107,9 @@ module.exports = {
   },
   'globals': {
     by: true,
+    angular: true,
+    firebase: true,
+    FB: true,
     browser: true,
     element: true,
     inject: true,
