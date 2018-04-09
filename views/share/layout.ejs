@@ -13,26 +13,25 @@
 
     <link rel="icon" href="/images/favicon.png">
 
-    <!-- load Google Fonts  -->
+    <!-- Google Fonts  -->
     <link href="//fonts.googleapis.com/css?family=Paytone+One|Quicksand&amp;subset=latin-ext,vietnamese" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald:700&amp;subset=latin-ext,vietnamese" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
-
-
-    <!-- load BootStrap  -->
+    
+    <!-- Bootstrap 3 -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <!-- load AngularJS  -->
+    <!-- AngularJS  -->
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="//cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
 
-    <!-- load Animate.css  -->
+    <!-- Animate.css  -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
-    <!-- load Firebase  -->
+    <!-- Firebase  -->
     <script src="//www.gstatic.com/firebasejs/4.2.0/firebase-app.js "></script>
     <script src="//www.gstatic.com/firebasejs/4.2.0/firebase-auth.js "></script>
     <script src="//www.gstatic.com/firebasejs/4.2.0/firebase-database.js "></script>
@@ -40,7 +39,7 @@
     <script src="//www.gstatic.com/firebasejs/4.2.0/firebase.js "></script>
     <script src="/javascripts/system/configFirebase.js"></script>
 
-    <!-- load Default  -->
+    <!-- Default  -->
     <link rel="stylesheet" href="/stylesheets/style.css">
     <script src="/javascripts/setting.js"></script>
     <script src="/javascripts/main.js"></script>
@@ -59,48 +58,29 @@
         <img src="/images/scroll-top.png" alt="">
     </a>
 
-
-
-
     <!-- HEADER PAGE  -->
-
     <div class="my-header-page">
         <div class="my-top-header-text">
             <h1> Cinema Application </h1>
         </div>
-        <!-- <div class="my-bot-header-text text-right">
-            <a href="https://github.com/huynhsamha" target="_blank">
-                <h4> Contact me: https://github.com/huynhsamha</h4>
-            </a>
-        </div> -->
     </div>
 
-
-
     <!-- LOADER  -->
-
     <div class="loader"></div>
 
-
-
     <!-- NAVIGATION -->
-    <!-- <nav class="navbar navbar-default navbar-fixed-top navbar-custom"> -->
     <nav class="navbar navbar-default navbar-custom">
         <div class="container my-containter-full">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> <i class="fa fa-bars"></i>
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="/">
                     <i class="fa fa-home" aria-hidden="true"></i>
                 </a>
-                <!-- <a class="navbar-brand" href="/user/profile" ng-cloak ng-hide="!userLogined">
-                    {{currentUsername}}
-                </a> -->
-                <!-- <a class="navbar-brand" href="/">Cinema</a> -->
             </div>
-
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbar-collapse-1">
                 <ul class="nav navbar-nav nav-left">
@@ -139,23 +119,7 @@
                             <i class="fa fa-user-plus fa-lg" aria-hidden="true"></i> Đăng ký</a>
                     </li>
 
-                    <!-- <li ng-hide="!userLogined" ng-cloak>
-                        <a href="/user/profile">
-                            <i class="fa fa-user fa-lg" aria-hidden="true"></i> {{currentUsername}}</a>
-                    </li> -->
-
-                    <!-- <li ng-hide="!userLogined" ng-cloak>
-                        <a href="#" data-toggle="modal" data-target="#modalChangePassword">
-                            <i class="fa fa-cog fa-lg" aria-hidden="true"></i> Đổi mật khẩu </a>
-                    </li> -->
-                    <!-- <li ng-hide="!userLogined" ng-cloak>
-                        <a href="#" data-toggle="modal" data-target="#modalLogout">
-                            <i class="fa fa-sign-out fa-lg" aria-hidden="true"></i> Đăng xuất</a>
-                    </li> -->
-
-
                     <!-- Dropdown menu  -->
-
                     <li class="dropdown my-drop-down" ng-hide="!userLogined" ng-cloak>
                         <a class="dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa fa-cogs fa-lg" aria-hidden="true"></i> Cài đặt
@@ -180,29 +144,23 @@
                     </li>
                 </ul>
             </div>
-            <!-- /.navbar-collapse -->
         </div>
     </nav>
 
-
-
-
-
     <!-- LOGIN  -->
-
     <script src="/javascripts/system/login.js"></script>
     <script src="/javascripts/system/loginGoogle.js"></script>
     <script src="/javascripts/system/loginFacebook.js"></script>
 
-
-    <div class="modal fade animated rotateInUpRight" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="modalLoginLabel" aria-hidden="true" ng-controller="loginController">
+    <div class="modal fade animated rotateInUpRight" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="modalLoginLabel"
+        aria-hidden="true" ng-controller="loginController">
         <div class="modal-dialog my-modal-dialog" role="document">
             <div class="modal-content my-modal-content">
                 <div class="modal-header my-modal-header">
                     <div class="text-right" style="margin-right: 20px">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <i class="fa fa-close fa-lg" aria-hidden="true"></i>
-        			    </button>
+                        </button>
                     </div>
                     <br>
                     <div class="text-center">
@@ -212,19 +170,23 @@
                 <div class="modal-body my-modal-body">
                     <form role="form">
                         <div class="input-group my-div">
-                            <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+                            <span class="input-group-addon">
+                                <i class="fa fa-envelope-o fa-fw"></i>
+                            </span>
                             <input type="text" class="form-control" placeholder="Địa chỉ email" id="emailLogin" name="emailLogin" ng-model="emailLogin">
                         </div>
                         <div class="input-group my-div">
-                            <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                            <span class="input-group-addon">
+                                <i class="fa fa-key fa-fw"></i>
+                            </span>
                             <input type="password" class="form-control" id="passwordLogin" name="passwordLogin" placeholder="Mật khẩu" ng-model="passwordLogin">
                         </div>
                         <div class="form-group">
                             <input type="checkbox" value="true" id="rememberPassword" name="rememberPassword" ng-model="rememberPassword"> Lưu mật khẩu
                         </div>
                         <div class="form-group text-center">
-                            <button type="submit" class="btn btn-primary" id="btnLogin" name="btnLogin" ng-click="clickLogin()"> 
-					<i class="fa fa-sign-in fa-lg" aria-hidden="true"></i> Đăng nhập </button>
+                            <button type="submit" class="btn btn-primary" id="btnLogin" name="btnLogin" ng-click="clickLogin()">
+                                <i class="fa fa-sign-in fa-lg" aria-hidden="true"></i> Đăng nhập </button>
                         </div>
                         <div class="row">
                             <div class="col-md-6 col-sm-6 col-xs-6" id="div-login-google">
@@ -240,34 +202,31 @@
                         </div>
                     </form>
                     <div class="row col-xs-12 col-sm-12 col-md-12" style="margin-top:10px">
-                        <a href="#" class="my-text-bold" data-toggle="modal" data-target="#modalForgetPassword" data-dismiss="modal"> Quên mật khẩu <i class="fa fa-question-circle fa-fw" aria-hidden="true"></i> </a>
+                        <a href="#" class="my-text-bold" data-toggle="modal" data-target="#modalForgetPassword" data-dismiss="modal"> Quên mật khẩu
+                            <i class="fa fa-question-circle fa-fw" aria-hidden="true"></i>
+                        </a>
                     </div>
                     <div class="row col-xs-12 col-sm-12 col-md-12 my-text-bold" style="margin-top:5px;margin-bottom:15px">
                         Bạn chưa là thành viên.
-                        <a href="#" data-toggle="modal" data-target="#modalSignUp" data-dismiss="modal"> 
-                                      Đăng ký </a>
+                        <a href="#" data-toggle="modal" data-target="#modalSignUp" data-dismiss="modal">
+                            Đăng ký </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-
-
-
-
-
     <!-- FORGET PASSWORD  -->
-
     <script src="/javascripts/system/forget.js"></script>
-    <div class="modal fade animated bounceInLeft" id="modalForgetPassword" tabindex="-1" role="dialog" aria-labelledby="modalForgetPasswordLabel" aria-hidden="true">
+    <div class="modal fade animated bounceInLeft" id="modalForgetPassword" tabindex="-1" role="dialog" aria-labelledby="modalForgetPasswordLabel"
+        aria-hidden="true">
         <div class="modal-dialog my-modal-dialog" role="document">
             <div class="modal-content my-modal-content">
                 <div class="modal-header my-modal-header">
                     <div class="text-right" style="margin-right: 20px">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <i class="fa fa-close fa-lg" aria-hidden="true"></i>
-        			    </button>
+                        </button>
                     </div>
                     <br>
                     <div class="text-center">
@@ -292,21 +251,17 @@
         </div>
     </div>
 
-
-
-
-
     <!-- SIGN UP  -->
-
     <script src="/javascripts/system/signup.js"></script>
-    <div class="modal fade animated lightSpeedIn" id="modalSignUp" tabindex="-1" role="dialog" aria-labelledby="modalSignUpLabel" aria-hidden="true">
+    <div class="modal fade animated lightSpeedIn" id="modalSignUp" tabindex="-1" role="dialog" aria-labelledby="modalSignUpLabel"
+        aria-hidden="true">
         <div class="modal-dialog my-modal-dialog" role="document">
             <div class="modal-content my-modal-content">
                 <div class="modal-header my-modal-header">
                     <div class="text-right" style="margin-right: 20px">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <i class="fa fa-close fa-lg" aria-hidden="true"></i>
-        			    </button>
+                        </button>
                     </div>
                     <br>
                     <div class="text-center">
@@ -333,40 +288,31 @@
                                 <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm" placeholder="" ng-model="passwordConfirm">
                             </div>
                             <div class="form-group text-center">
-                                <button type="submit" class="btn btn-primary" id="btnSignup" name="btnSignup" ng-click="clickSignUp()"> 
-				<i class="fa fa-user-plus fa-lg" aria-hidden="true"></i> Tạo tài khoản </button>
+                                <button type="submit" class="btn btn-primary" id="btnSignup" name="btnSignup" ng-click="clickSignUp()">
+                                    <i class="fa fa-user-plus fa-lg" aria-hidden="true"></i> Tạo tài khoản </button>
                             </div>
                             <div class="form-group my-text-bold">
                                 Đã có tài khoản.
-                                <a href="#" data-toggle="modal" data-target="#modalLogin" data-dismiss="modal">  Đăng nhập. </a>
+                                <a href="#" data-toggle="modal" data-target="#modalLogin" data-dismiss="modal"> Đăng nhập. </a>
                             </div>
                         </form>
                     </div>
                 </div>
-                <!-- <div class="modal-footer">
-                     <a href="#" class="my-text-bold" data-toggle="modal" data-target="#modalLogin" data-dismiss="modal"> Đã có tài khoản</a> 
-                     <button type="button" class="btn btn-success" data-dismiss="modal">Thoát</button> 
-                </div> -->
             </div>
         </div>
     </div>
 
-
-
-
-
-
     <!-- CHANGE PASSWORD  -->
-
     <script src="/javascripts/user/changePassword.js"></script>
-    <div class="modal fade animated rotateIn" id="modalChangePassword" tabindex="-1" role="dialog" aria-labelledby="modalChangePasswordLabel" aria-hidden="true">
+    <div class="modal fade animated rotateIn" id="modalChangePassword" tabindex="-1" role="dialog" aria-labelledby="modalChangePasswordLabel"
+        aria-hidden="true">
         <div class="modal-dialog my-modal-dialog" role="document">
             <div class="modal-content my-modal-content">
                 <div class="modal-header my-modal-header">
                     <div class="text-right" style="margin-right: 20px">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <i class="fa fa-close fa-lg" aria-hidden="true"></i>
-        			    </button>
+                        </button>
                     </div>
                     <br>
                     <div class="text-center">
@@ -390,8 +336,8 @@
                             </div>
                             <div class="form-group text-center">
                                 <button type="button" class="btn btn-success" data-dismiss="modal">Thoát</button>
-                                <button type="submit" class="btn btn-primary" id="btnChangePassword" name="btnChangePassword" ng-click="clickChangePassword()"> 
-				<i class="fa fa-edit fa-lg" aria-hidden="true"></i> Thay đổi mật khẩu </button>
+                                <button type="submit" class="btn btn-primary" id="btnChangePassword" name="btnChangePassword" ng-click="clickChangePassword()">
+                                    <i class="fa fa-edit fa-lg" aria-hidden="true"></i> Thay đổi mật khẩu </button>
                             </div>
                         </form>
                     </div>
@@ -400,12 +346,7 @@
         </div>
     </div>
 
-
-
-
-
     <!-- LOGOUT  -->
-
     <div class="modal fade animated shake" id="modalLogout" tabindex="-1" role="dialog" aria-labelledby="modalLogoutLabel" aria-hidden="true">
         <div class="modal-dialog my-modal-dialog" role="document">
             <div class="modal-content my-modal-content">
@@ -413,7 +354,7 @@
                     <div class="text-right" style="margin-right: 20px">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <i class="fa fa-close fa-lg" aria-hidden="true"></i>
-        			    </button>
+                        </button>
                     </div>
                     <br>
                     <div class="text-center">
@@ -432,24 +373,15 @@
         </div>
     </div>
 
-
-
-
-
     <!-- Insert BODY in other page  -->
-
     <%-body -%>
 
-
-
-
         <!-- FOOTER  -->
-
         <footer class="text-center my-footer" style="display:none">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; Cinema Website 2017
+                        Copyright &copy; Cinema Website 2017-2018
                     </div>
                 </div>
             </div>

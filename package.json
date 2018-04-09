@@ -1,19 +1,46 @@
 {
-    "name": "cinemaha",
-    "version": "1.0.0",
-    "author": "Stupid Dog",
-    "private": true,
-    "scripts": {
-        "start": "node ./bin/www"
-    },
-    "dependencies": {
-        "body-parser": "~1.17.1",
-        "cookie-parser": "~1.4.3",
-        "debug": "~2.6.3",
-        "ejs": "~2.5.6",
-        "ejs-locals": "^1.0.2",
-        "express": "~4.15.2",
-        "morgan": "~1.8.1",
-        "serve-favicon": "~2.4.2"
-    }
+  "name": "app-cinema-web",
+  "version": "2.0.0",
+  "homepage": "https://app-cinema-website.herokuapp.com/",
+  "private": true,
+  "description": "App Cinema use NodeJS, AngularJS, Firebase",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huynhsamha/app-cinema-website.git"
+  },
+  "scripts": {
+    "start": "node server"
+  },
+  "dependencies": {
+    "body-parser": "~1.17.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "ejs": "~2.5.6",
+    "ejs-locals": "^1.0.2",
+    "express": "~4.15.2",
+    "morgan": "~1.8.1",
+    "serve-favicon": "~2.4.2"
+  },
+  "author": {
+    "name": "huynhsamha",
+    "email": "huynhsamha@gmail.com",
+    "url": "https://github.com/huynhsamha"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huynhsamha/app-cinema-webiste/issues"
+  },
+  "engines": {
+    "node": ">=6.10.0",
+    "npm": ">=3.10.8"
+  },
+  "contributors": [
+    "huynhsamha"
+  ],
+  "icon": "./public/favicon.ico",
+  "keywords": [
+    "NodeJS",
+    "Firebase",
+    "AngularJS"
+  ]
 }
