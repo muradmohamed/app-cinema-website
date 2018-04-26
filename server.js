@@ -62,8 +62,8 @@ server.listen(port, () => console.log(`Running on localhost:${port}`));
 /**
  * Config interval timer ping app to prevent sleeping
  */
-const HALF_HOURS = 1000 * 60 * 30;
+// const HALF_HOURS = 1000 * 60 * 30;
 
-setInterval(() => {
-  http.get('https://app-cinema-website.herokuapp.com/');
-}, HALF_HOURS);
+// setInterval(() => {
+//   http.get('https://app-cinema-website.herokuapp.com/');
+// }, HALF_HOURS);
